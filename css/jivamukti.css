@@ -323,15 +323,14 @@
 .carousel_slide_layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 32rem;
+  gap: var(--_spacing---space--5-32px);
+  min-height: 28rem;
 }
 
 .carousel_slide_image {
   overflow: hidden;
   border-radius: var(--radius--main);
   position: relative;
-  aspect-ratio: 4 / 3;
-  height: 100%;
 }
 
 .carousel_slide_image img {
@@ -345,7 +344,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--_spacing---space--6-40px);
+  padding: var(--_spacing---space--5-32px) 0;
 }
 
 .carousel_controls {
@@ -396,14 +395,16 @@
   color: var(--swatch--brand-text);
 }
 
-@container (width < 35em) {
+@container (width < 48em) {
   .carousel_slide_layout {
     grid-template-columns: 1fr;
-    height: auto;
+    min-height: auto;
   }
   .carousel_slide_image {
-    aspect-ratio: 4 / 3;
-    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+  .carousel_slide_content {
+    padding: var(--_spacing---space--4-24px) 0;
   }
 }
 
@@ -491,7 +492,13 @@
   margin-top: auto;
 }
 
-@container (width < 50em) {
+@container (width < 65em) {
+  .feature_cards_grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container (width < 40em) {
   .feature_cards_grid {
     grid-template-columns: 1fr;
   }
@@ -779,7 +786,7 @@
   margin-top: var(--_spacing---space--5-32px);
 }
 
-@container (width < 35em) {
+@container (width < 40em) {
   .form_row_2col {
     grid-template-columns: 1fr;
   }
@@ -862,7 +869,7 @@
   line-height: var(--_typography---line-height--huge);
 }
 
-@media (max-width: 80em) {
+@container (width < 50em) {
   .htoggle_container {
     flex-direction: column;
   }
