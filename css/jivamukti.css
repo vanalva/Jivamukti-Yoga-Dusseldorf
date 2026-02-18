@@ -324,13 +324,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--_spacing---space--5-32px);
-  min-height: 28rem;
+  height: 28rem;
 }
 
 .carousel_slide_image {
   overflow: hidden;
   border-radius: var(--radius--main);
   position: relative;
+  min-height: 0;
 }
 
 .carousel_slide_image img {
@@ -398,7 +399,7 @@
 @container (width < 48em) {
   .carousel_slide_layout {
     grid-template-columns: 1fr;
-    min-height: auto;
+    height: auto;
   }
   .carousel_slide_image {
     aspect-ratio: 16 / 9;
