@@ -1,0 +1,1376 @@
+/* ==========================================================================
+   Jivamukti Yoga Dusseldorf - Custom Overrides
+   Only styles NOT provided by the Lumos framework
+   ========================================================================== */
+
+/* ==========================================================================
+   0. INTERACTION SYSTEMS
+   Framework buttons use --_trigger---on/off for hover color-mix.
+   Framework accordion uses --_state---false/true for icon rotation.
+   These are normally set by Webflow interactions but need manual CSS here.
+   ========================================================================== */
+
+/* Site-level design token overrides */
+:root {
+  /* Soft rounding (framework defaults are 0rem) */
+  --radius--main: 0.5rem;
+  --radius--small: 0.375rem;
+
+  /* Typography scale: stronger hierarchy
+     Framework defaults: Display=H1 (identical), all weight 500, H5<H6 bug.
+     New scale: ~1.4x ratio per step, Display is dramatic, clear step-downs.
+     ─────────────────────────────────────────────────────────────────────
+     Level    Min (mobile)   Max (desktop)   Weight   Purpose
+     Display  56px (3.5rem)  112px (7rem)    700      Hero / splash
+     H1       44px (2.75rem) 80px  (5rem)    700      Primary section
+     H2       32px (2rem)    56px  (3.5rem)  500      Section heading
+     H3       24px (1.5rem)  40px  (2.5rem)  500      Sub-heading
+     H4       20px (1.25rem) 28px  (1.75rem) 500      Card / component
+     H5       16px (1rem)    20px  (1.25rem) 500      Small heading
+     H6       14px (0.875rem)16px  (1rem)    500      Label
+     ───────────────────────────────────────────────────────────────────── */
+  --_typography---font-size--display: clamp(3.5rem, 2rem + 5.5vw, 7rem);
+  --_typography---font-size--h1: clamp(2.75rem, 1.5rem + 3.75vw, 5rem);
+  --_typography---font-size--h2: clamp(2rem, 1rem + 2.75vw, 3.5rem);
+  --_typography---font-size--h3: clamp(1.5rem, 0.75rem + 1.875vw, 2.5rem);
+  --_typography---font-size--h4: clamp(1.25rem, 0.875rem + 0.95vw, 1.75rem);
+  --_typography---font-size--h5: clamp(1rem, 0.875rem + 0.4vw, 1.25rem);
+  --_typography---font-size--h6: clamp(0.875rem, 0.8rem + 0.2vw, 1rem);
+}
+
+/* Display & H1: bold weight + tighter line-height for large text.
+   H2 and below keep medium (500) — the weight contrast creates hierarchy. */
+.u-text-style-display,
+[data-wf--typography-heading--variant="display"] {
+  font-weight: var(--_typography---font--primary-bold);
+  line-height: 1.05;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.u-text-style-h1,
+[data-wf--typography-heading--variant="h1"] {
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+/* Override light theme borders and secondary buttons to use brand color */
+.u-theme-light {
+  --_theme---border: var(--swatch--brand-300);
+  --_theme---heading-accent: var(--swatch--brand-500);
+  --_theme---button-secondary--text: var(--swatch--brand-500);
+  --_theme---button-secondary--text-hover: var(--swatch--brand-text);
+  --_theme---button-secondary--background: var(--swatch--transparent);
+  --_theme---button-secondary--background-hover: var(--swatch--brand-500);
+  --_theme---button-secondary--border: var(--swatch--brand-500);
+  --_theme---button-secondary--border-hover: var(--swatch--brand-500);
+}
+
+[data-trigger] {
+  --_trigger---on: 1;
+  --_trigger---off: 0;
+}
+
+[data-trigger]:hover,
+[data-trigger]:focus-within {
+  --_trigger---on: 0;
+  --_trigger---off: 1;
+}
+
+/* ==========================================================================
+   1. THEME: TERTIARY (Teal #0d3333)
+   Not part of base framework - custom addition
+   ========================================================================== */
+
+.u-theme-tertiary {
+  background-color: var(--_theme---background);
+  color: var(--_theme---text);
+  --_theme---background: var(--swatch--tertiary-500);
+  --_theme---text: var(--swatch--tertiary-text);
+  --_theme---background-2: var(--swatch--tertiary-600);
+  --_theme---border: var(--swatch--light-100-o20);
+  --_theme---heading-accent: var(--swatch--brand-500);
+  --_theme---selection--background: var(--swatch--brand-500);
+  --_theme---selection--text: var(--swatch--brand-text);
+  --_theme---button-primary--text: var(--swatch--brand-text);
+  --_theme---button-primary--text-hover: var(--_theme---background);
+  --_theme---button-primary--background: var(--swatch--brand-500);
+  --_theme---button-primary--background-hover: var(--_theme---text);
+  --_theme---button-primary--border: var(--_theme---button-primary--background);
+  --_theme---button-primary--border-hover: var(--_theme---button-primary--background-hover);
+  --_theme---button-secondary--text: var(--_theme---text);
+  --_theme---button-secondary--text-hover: var(--_theme---background);
+  --_theme---button-secondary--background: var(--swatch--transparent);
+  --_theme---button-secondary--background-hover: var(--_theme---text);
+  --_theme---button-secondary--border: var(--_theme---border);
+  --_theme---button-secondary--border-hover: var(--_theme---button-secondary--background-hover);
+}
+
+/* ==========================================================================
+   2. NAVIGATION CUSTOMIZATIONS
+   Lumos nav_component handles structure, responsive, and mobile menu.
+   Overrides below adjust sizing for 8 nav links + button.
+   ========================================================================== */
+
+/* Banner: undo framework inversion (bg=text, color=bg) so brand theme
+   renders correctly: orange background with cream text. */
+.nav_banner_wrap {
+  background-color: var(--_theme---background);
+  color: var(--_theme---text);
+}
+
+/* Rounded nav bar with cream background and brand border */
+.nav_desktop_contain {
+  background-color: var(--swatch--light-200);
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  border-radius: var(--radius--round);
+}
+
+/* Wider logo area (framework default is 6rem, too small for wordmark) */
+.nav_desktop_logo {
+  width: 24rem;
+}
+
+/* Logo image sizing */
+.nav_logo_image {
+  max-height: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Nav text: uppercase, no wrapping */
+.nav_links_text {
+  font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+  letter-spacing: var(--_typography---letter-spacing--wider);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Dropdown text matches nav text style */
+.nav_dropdown_text {
+  font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+  letter-spacing: var(--_typography---letter-spacing--wider);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Dropdowns: match navbar styling, fit content */
+.nav_dropdown_main_wrap:where(.w-variant-23049969-09ac-2789-520b-3c6ae895bbc6) {
+  width: auto;
+}
+
+.nav_dropdown_main_scroll:where(.w-variant-23049969-09ac-2789-520b-3c6ae895bbc6) {
+  background-color: var(--swatch--light-200);
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  border-radius: var(--radius--main);
+}
+
+.nav_dropdown_link:where(.w-variant-23049969-09ac-2789-520b-3c6ae895bbc6) {
+  text-align: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.nav_dropdown_item:last-child .nav_dropdown_link {
+  border-bottom: none;
+}
+
+.nav_dropdown_link:where(.w-variant-23049969-09ac-2789-520b-3c6ae895bbc6):hover {
+  background-color: var(--swatch--brand-500);
+  color: var(--swatch--brand-text);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* CTA button: align right, balanced padding */
+.nav_actions_wrap:where(.w-variant-23049969-09ac-2789-520b-3c6ae895bbc6) {
+  margin-left: auto;
+}
+
+.nav_buttons_item.is-main:where(.w-variant-23049969-09ac-2789-520b-3c6ae895bbc6) {
+  margin: 0;
+}
+
+/* ---------- Mobile Navigation ---------- */
+
+/* Mobile bar: match desktop styling (cream bg, brand border, round) */
+.nav_mobile_layout {
+  background-color: var(--swatch--light-200);
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  border-radius: var(--radius--round);
+}
+
+/* Wider mobile logo (framework default is 6rem) */
+.nav_mobile_logo {
+  width: 10rem;
+}
+
+/* Mobile menu panel: transparent outer wrap, styled inner scroll for floating effect */
+.nav_mobile_menu_wrap {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding-top: calc(var(--nav--height) + var(--_spacing---space--2-12px));
+}
+
+.nav_mobile_menu_scroll {
+  background-color: var(--swatch--light-200);
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  border-radius: var(--radius--main);
+}
+
+/* Mobile menu links: match desktop text style */
+.nav_mobile_menu_wrap .nav_links_text {
+  font-size: var(--_typography---font-size--text-main);
+  letter-spacing: var(--_typography---letter-spacing--wider);
+  text-transform: uppercase;
+}
+
+/* Mobile menu link items: add separator borders */
+.nav_mobile_menu_wrap .nav_links_item {
+  border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.nav_mobile_menu_wrap .nav_links_item:last-child {
+  border-bottom: none;
+}
+
+/* Mobile menu link hover */
+.nav_mobile_menu_wrap .nav_links_link:hover {
+  background-color: color-mix(in srgb, currentColor 5%, transparent);
+}
+
+/* ==========================================================================
+   3. HERO SECTION
+   Lumos full-screen section with background image.
+   Only the logo sizing needs custom CSS.
+   ========================================================================== */
+
+/* Cream overlay instead of default black */
+.u-section.u-min-height-screen .u-overlay {
+  background-color: color-mix(in srgb, var(--swatch--light-200) calc(var(--number) / 100 * 80%), transparent);
+}
+
+/* Override dark theme for hero — cream overlay makes it a light bg */
+.u-section.u-min-height-screen {
+  --_theme---text: var(--swatch--dark-500);
+  --_theme---heading: var(--swatch--dark-500);
+  --_theme---button-secondary--text: var(--swatch--brand-500);
+  --_theme---button-secondary--border: var(--swatch--brand-500);
+  --_theme---button-secondary--background: var(--swatch--transparent);
+  --_theme---button-secondary--text-hover: var(--swatch--brand-text);
+  --_theme---button-secondary--border-hover: var(--swatch--brand-500);
+  --_theme---button-secondary--background-hover: var(--swatch--brand-500);
+}
+
+.hero_logo_wrap {
+  max-width: 35rem;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero_logo_wrap img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+}
+
+/* Hero CTA: solid orange button (not cream) */
+.u-section.u-min-height-screen .hero_cta_button .button_main_element {
+  background-color: var(--swatch--brand-500) !important;
+  color: var(--swatch--brand-text) !important;
+  border-color: var(--swatch--brand-500) !important;
+}
+.u-section.u-min-height-screen .hero_cta_button:hover .button_main_element,
+.u-section.u-min-height-screen .hero_cta_button:focus-within .button_main_element {
+  background-color: var(--swatch--brand-600) !important;
+  color: var(--swatch--brand-text) !important;
+  border-color: var(--swatch--brand-600) !important;
+}
+
+/* ---------- Inner-page hero — uses Lumos "full" layout (58b19052) ---------- */
+/* The framework handles the 2-column grid, column padding, image clipping,
+   and responsive stacking. Only min-height override needed for hero presence. */
+
+.page_hero {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.page_hero .u-layout-column-2 {
+  min-height: 60vh;
+}
+
+.u-min-height-half {
+  min-height: 50vh;
+}
+
+/* ==========================================================================
+   4. CAROUSEL
+   Custom component using Swiper (not framework slider)
+   ========================================================================== */
+
+.carousel_section {
+  border-top: var(--border-width--main) solid var(--swatch--brand-500);
+  border-bottom: var(--border-width--main) solid var(--swatch--brand-500);
+}
+
+.carousel_slide_layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 32rem;
+}
+
+.carousel_slide_image {
+  overflow: hidden;
+  border-radius: var(--radius--main);
+  position: relative;
+  aspect-ratio: 4 / 3;
+  height: 100%;
+}
+
+.carousel_slide_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel_slide_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--_spacing---space--6-40px);
+}
+
+.carousel_controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--_spacing---space--4-24px);
+}
+
+.carousel_progress_wrap {
+  flex: 1;
+  height: var(--border-width--main);
+  background-color: var(--_theme---border);
+  border-radius: var(--radius--small);
+  overflow: hidden;
+  margin-right: var(--_spacing---space--4-24px);
+}
+
+.carousel_progress_bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--swatch--brand-500);
+  transition: width 0.1s linear;
+}
+
+.carousel_nav {
+  display: flex;
+  gap: var(--_spacing---space--2-12px);
+}
+
+.carousel_btn {
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  border-radius: var(--radius--small);
+  background: none;
+  color: var(--_theme---text);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.carousel_btn:hover {
+  background-color: var(--swatch--brand-500);
+  border-color: var(--swatch--brand-500);
+  color: var(--swatch--brand-text);
+}
+
+@container (width < 35em) {
+  .carousel_slide_layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .carousel_slide_image {
+    aspect-ratio: 4 / 3;
+    height: auto;
+  }
+}
+
+/* ==========================================================================
+   5. FEATURE CARDS
+   Custom component - not in framework
+   ========================================================================== */
+
+.feature_cards_grid {
+  display: grid;
+  grid-template-columns: repeat(var(--feature-cards-columns, 3), 1fr);
+  gap: var(--site--gutter);
+}
+
+.feature_card_wrap {
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  border-radius: var(--radius--main);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature_card_image_wrap {
+  overflow: hidden;
+  max-height: 25rem;
+}
+
+.feature_card_image_wrap.is-collapsed {
+  max-height: 0;
+}
+
+.feature_card_image_wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.feature_card_divider {
+  height: var(--border-width--main);
+  background-color: var(--swatch--brand-500);
+  margin-top: calc(-1 * var(--border-width--main));
+}
+
+.feature_card_wrap .u-heading {
+  padding: var(--_spacing---space--4-24px) var(--_spacing---space--4-24px) 0;
+}
+
+.feature_card_toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--_spacing---space--3-16px) var(--_spacing---space--4-24px);
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.feature_card_toggle_icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.3s;
+}
+
+.feature_card_toggle[aria-expanded="true"] .feature_card_toggle_icon {
+  transform: rotate(45deg);
+  color: var(--swatch--brand-500);
+}
+
+.feature_card_content {
+  padding: var(--_spacing---space--4-24px);
+  animation: contentFadeIn 0.25s ease;
+}
+
+@keyframes contentFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.feature_card_cta {
+  padding: var(--_spacing---space--3-16px) var(--_spacing---space--4-24px) var(--_spacing---space--4-24px);
+  margin-top: auto;
+}
+
+@container (width < 50em) {
+  .feature_cards_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   5b. TESTIMONIAL VIDEO MARQUEE
+   Infinite-scroll video cards with CSS animation, hover to pause & play
+   ========================================================================== */
+
+/* Marquee container — hides overflow for seamless scroll */
+.testimonial-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Track — flex row that scrolls via CSS keyframes */
+.testimonial-track {
+  display: flex;
+  width: max-content;
+  animation: testimonial-scroll 40s linear infinite;
+}
+
+/* Instant pause on hover — no lag, no jumping */
+.testimonial-marquee:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+@keyframes testimonial-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Individual video card */
+.testimonial_video_wrap {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: var(--radius--main);
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  flex: 0 0 auto;
+  width: 22vw;
+  margin-right: 1rem;
+}
+
+.testimonial_video {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+/* Play icon overlay */
+.testimonial_play_icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.testimonial_video_wrap:hover .testimonial_play_icon {
+  opacity: 0;
+}
+
+/* Responsive card widths */
+@media (max-width: 1024px) {
+  .testimonial_video_wrap { width: 30vw; }
+}
+@media (max-width: 768px) {
+  .testimonial_video_wrap { width: 38vw; }
+}
+@media (max-width: 480px) {
+  .testimonial_video_wrap { width: 60vw; }
+}
+
+/* ==========================================================================
+   5c. FULL-WIDTH PHOTOGRAPH
+   Edge-to-edge image between Photography Credit and Quote Section 2
+   ========================================================================== */
+
+.fullwidth_photo_section {
+  width: 100%;
+  overflow: hidden;
+}
+
+.fullwidth_photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 70vh;
+}
+
+/* ==========================================================================
+   6. QUOTE SECTIONS
+   Custom styling for quote layout
+   ========================================================================== */
+
+/* Quote sections use spacer elements for padding, no extra needed */
+
+.quote_logo_wrap {
+  max-width: 15rem;
+  margin-inline: auto;
+}
+
+.quote_logo_wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.photo_credit_section {
+  padding: var(--_spacing---space--3-16px) var(--_spacing---space--4-24px);
+  text-align: center;
+}
+
+.photo_credit_text {
+  font-size: var(--_typography---font-size--text-small);
+  margin: 0;
+}
+
+.photo_credit_link {
+  color: var(--swatch--brand-500);
+  text-decoration: none;
+  font-weight: var(--_typography---font--primary-semibold);
+}
+
+.photo_credit_link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   7. ABOUT CTA
+   Custom 2-column layout
+   ========================================================================== */
+
+.about_cta_layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--site--gutter);
+  align-items: center;
+}
+
+.about_cta_image {
+  overflow: hidden;
+  border-radius: var(--radius--main);
+}
+
+.about_cta_image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  min-height: 20rem;
+}
+
+@container (width < 50em) {
+  .about_cta_layout {
+    grid-template-columns: 1fr;
+  }
+  .about_cta_image {
+    order: -1;
+  }
+}
+
+/* ==========================================================================
+   8. CONTACT FORM
+   Additions beyond framework form_component
+   ========================================================================== */
+
+/* Form layout — fill available container width */
+.form_component {
+  width: 100%;
+}
+
+/* Override framework 64px row-gap on form_element */
+.contact_form.form_element {
+  gap: var(--_spacing---space--2-12px);
+}
+
+.form_row_2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--_spacing---space--2-12px);
+}
+
+/* Input & textarea: rounded, solid brand border, no opacity mixing */
+.form_field {
+  border-color: var(--swatch--brand-500);
+  border-radius: var(--radius--round);
+  background-color: transparent;
+  height: 3.25rem;
+  padding: 0 1.25rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form_field:focus {
+  border-color: var(--swatch--brand-500);
+  box-shadow: 0 0 0 1px var(--swatch--brand-500);
+}
+
+.form_field::placeholder {
+  color: color-mix(in srgb, var(--_theme---text) 40%, transparent);
+}
+
+/* Textarea: softer radius, taller, proper padding */
+.form_textarea {
+  border-radius: var(--radius--main);
+  min-height: 10rem;
+  padding: 1rem 1.25rem;
+  resize: vertical;
+}
+
+/* Custom checkbox — no browser default */
+.form_checkbox_wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--_spacing---space--2-12px);
+  margin-top: var(--_spacing---space--5-32px);
+  cursor: pointer;
+}
+
+.form_checkbox {
+  -webkit-appearance: none;
+  appearance: none;
+  flex-shrink: 0;
+  width: 1.375rem;
+  height: 1.375rem;
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  border-radius: var(--radius--small);
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  margin-top: 0.125rem;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.form_checkbox:checked {
+  background-color: var(--swatch--brand-500);
+  border-color: var(--swatch--brand-500);
+}
+
+.form_checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 0.2rem;
+  left: 0.4rem;
+  width: 0.35rem;
+  height: 0.65rem;
+  border: solid var(--swatch--brand-text);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.form_checkbox:focus-visible {
+  outline: 2px solid var(--swatch--brand-500);
+  outline-offset: 2px;
+}
+
+.form_checkbox_text {
+  font-size: var(--_typography---font-size--text-small);
+  line-height: 1.5;
+}
+
+.form_checkbox_text a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.form_checkbox_text a:hover {
+  color: var(--swatch--brand-500);
+}
+
+/* Submit button spacing */
+.form_submit_wrap {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: var(--_spacing---space--5-32px);
+}
+
+@container (width < 35em) {
+  .form_row_2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   9. HORIZONTAL TOGGLE (Classes Section)
+   Outlined tabs on the left, content panel on the right.
+   On mobile: stacks vertically.
+   ========================================================================== */
+
+.htoggle_container {
+  display: flex;
+  align-items: stretch;
+  border: var(--border-width--main) solid currentColor;
+  border-radius: var(--radius--main);
+  overflow: hidden;
+}
+
+.htoggle_tab {
+  flex: 0 0 auto;
+  border: none;
+  border-left: var(--border-width--main) solid currentColor;
+  margin-left: calc(-1 * var(--border-width--main));
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--_typography---font-size--text-main);
+  font-weight: var(--_typography---font--primary-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--_typography---letter-spacing--wider);
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  padding: var(--_spacing---space--5-32px) var(--_spacing---space--1-8px);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.htoggle_tab:hover {
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.htoggle_tab.is-active {
+  background-color: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.htoggle_content {
+  flex: 0 0 0;
+  min-width: 0;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0 solid currentColor;
+  opacity: 0;
+}
+
+.htoggle_content.is-active {
+  flex: 1 1 0;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--_spacing---space--7-48px);
+  border-left-width: var(--border-width--main);
+  margin-left: calc(-1 * var(--border-width--main));
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.htoggle_content_title {
+  font-family: inherit;
+  font-size: var(--_typography---font-size--h4);
+  font-weight: var(--_typography---font--primary-medium);
+  margin-bottom: var(--_spacing---space--3-16px);
+}
+
+.htoggle_content p {
+  font-size: var(--_typography---font-size--text-main);
+  line-height: var(--_typography---line-height--huge);
+}
+
+@media (max-width: 80em) {
+  .htoggle_container {
+    flex-direction: column;
+  }
+
+  .htoggle_tab {
+    writing-mode: horizontal-tb;
+    transform: none;
+    text-align: left;
+    border-left: none;
+    margin-left: 0;
+    border-top: var(--border-width--main) solid currentColor;
+    margin-top: calc(-1 * var(--border-width--main));
+    padding: var(--_spacing---space--3-16px) var(--_spacing---space--4-24px);
+  }
+
+  .htoggle_content {
+    margin-left: 0;
+    transition: none;
+  }
+
+  .htoggle_content.is-active {
+    border-left-width: 0;
+    margin-left: 0;
+    border-top: var(--border-width--main) solid currentColor;
+    margin-top: calc(-1 * var(--border-width--main));
+    padding: var(--_spacing---space--5-32px) var(--_spacing---space--4-24px);
+  }
+}
+
+/* ==========================================================================
+   10. MARQUEE
+   Custom component - not in framework
+   ========================================================================== */
+
+.marquee_section {
+  overflow: hidden;
+  padding: 0;
+}
+
+.marquee_wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  padding-block: var(--_spacing---space--7-48px);
+}
+
+.marquee_inner {
+  display: inline-flex;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee_text {
+  display: inline-block;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: var(--_typography---font--primary-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--_typography---letter-spacing--wide);
+  padding-right: 0.5em;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   11. FOOTER
+   Custom footer layout (not using framework footer_ classes)
+   ========================================================================== */
+
+.footer_layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--site--gutter);
+  align-items: start;
+}
+
+.footer_logo_image {
+  max-width: 14rem;
+  height: auto;
+  display: block;
+}
+
+.footer_nav_list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_spacing---space--2-12px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer_nav_link {
+  color: inherit;
+  text-decoration: none;
+  font-size: var(--_typography---font-size--text-small);
+  letter-spacing: var(--_typography---letter-spacing--wide);
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+
+.footer_nav_link:hover {
+  color: var(--swatch--brand-500);
+}
+
+.footer_social_col {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer_social_link {
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.footer_social_link:hover {
+  color: var(--swatch--brand-500);
+}
+
+/* Legal Row */
+.footer_legal_layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--site--gutter);
+  margin-top: var(--_spacing---space--7-48px);
+  padding-top: var(--_spacing---space--5-32px);
+  border-top: 1px solid var(--_theme---border);
+}
+
+.footer_legal_col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_spacing---space--1-8px);
+}
+
+.footer_legal_link {
+  color: inherit;
+  text-decoration: none;
+  font-size: var(--_typography---font-size--text-small);
+  transition: opacity 0.2s;
+}
+
+.footer_legal_link:hover {
+  color: var(--swatch--brand-500);
+}
+
+.footer_address_text,
+.footer_copyright_text {
+  font-size: var(--_typography---font-size--text-small);
+  color: inherit;
+  opacity: 0.7;
+}
+
+.footer_copyright_col {
+  text-align: right;
+}
+
+@container (width < 50em) {
+  .footer_layout,
+  .footer_legal_layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer_social_col {
+    justify-content: center;
+  }
+  .footer_logo_col {
+    display: flex;
+    justify-content: center;
+  }
+  .footer_copyright_col {
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   12. SCHEDULE PAGE
+   Momence embed overrides — adapted from old WP custom CSS.
+   Old vars: --secondary-color → --_theme---button-secondary--border
+             --base-color     → --_theme---background
+   Removed: letter-spacing: 5px (old tracking), border-radius: 0 (now rounded)
+   ========================================================================== */
+
+.schedule_embed_wrap {
+  min-height: 30rem;
+}
+
+/* Momence plugin color variables + full width */
+#momence-plugin-host-schedule {
+  --momence-primary-color: var(--_theme---button-secondary--border) !important;
+  --momence-secondary-color: var(--_theme---button-secondary--border) !important;
+  --momence-tertiary-color: var(--_theme---button-secondary--border) !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Global: font, brand color, rounded corners, no shadows, reset tracking */
+#momence-plugin-host-schedule,
+#momence-plugin-host-schedule * {
+  color: var(--_theme---button-secondary--border) !important;
+  border-radius: var(--radius--main) !important;
+  border-color: var(--_theme---button-secondary--border) !important;
+  font-family: var(--_typography---font--primary-family) !important;
+  letter-spacing: normal !important;
+  line-height: var(--_typography---line-height--text, 1.6) !important;
+  box-shadow: none !important;
+}
+
+/* Remove max-width constraints */
+#momence-plugin-host-schedule *,
+#momence-plugin-host-schedule *::before,
+#momence-plugin-host-schedule *::after {
+  max-width: none !important;
+}
+
+/* Headings — Lumos typography scale */
+#momence-plugin-host-schedule h2 {
+  font-size: var(--_typography---font-size--h4) !important;
+  font-weight: var(--_typography---font--primary-bold) !important;
+  line-height: var(--_typography---line-height--heading, 1.2) !important;
+  margin: 0 0 var(--_spacing---space--2-12px) 0 !important;
+}
+
+#momence-plugin-host-schedule h3 {
+  font-size: var(--_typography---font-size--text-main) !important;
+  font-weight: var(--_typography---font--primary-medium) !important;
+  line-height: var(--_typography---line-height--heading, 1.2) !important;
+  margin: 0 0 var(--_spacing---space--1-8px) 0 !important;
+}
+
+/* Body text — proper size and spacing */
+#momence-plugin-host-schedule p {
+  font-size: var(--_typography---font-size--text-small) !important;
+  line-height: var(--_typography---line-height--text, 1.6) !important;
+  margin-bottom: var(--_spacing---space--2-12px) !important;
+}
+
+/* SVG icons — don't apply line-height or letter-spacing */
+#momence-plugin-host-schedule svg,
+#momence-plugin-host-schedule svg * {
+  line-height: 0 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Buttons — brand border, transparent bg, uppercase, Lumos type */
+#momence-plugin-host-schedule button {
+  color: var(--_theme---button-secondary--border) !important;
+  border-width: var(--border-width--main) !important;
+  border-color: var(--_theme---button-secondary--border) !important;
+  border-radius: var(--radius--main) !important;
+  font-size: var(--_typography---font-size--text-main) !important;
+  font-weight: var(--_typography---font--primary-medium) !important;
+  text-transform: uppercase !important;
+  letter-spacing: normal !important;
+  background-color: transparent !important;
+}
+
+/* Default button hover: no fill */
+#momence-plugin-host-schedule button:hover {
+  background-color: transparent !important;
+  color: var(--_theme---button-secondary--border) !important;
+}
+
+/* "Book Now" buttons inside cards: fill on hover */
+#momence-plugin-host-schedule .gJjWAV button:hover {
+  background-color: var(--_theme---button-secondary--border) !important;
+  color: var(--_theme---background) !important;
+}
+
+/* Main content container */
+#momence-plugin-host-schedule .gJjWAV {
+  padding: var(--_spacing---space--5-32px) !important;
+  border: var(--border-width--main) solid var(--_theme---button-secondary--border) !important;
+  border-radius: var(--radius--main) !important;
+  background-color: var(--_theme---background) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--_spacing---space--4-24px) !important;
+}
+
+/* Background containers */
+#momence-plugin-host-schedule .gFWJWQ {
+  background-color: var(--_theme---background) !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+#momence-plugin-host-schedule .EenGE,
+#momence-plugin-host-schedule .gJjWAV {
+  background-color: var(--_theme---background) !important;
+}
+
+#momence-plugin-host-schedule .krelkN,
+#momence-plugin-host-schedule .bIbgHD {
+  background: none !important;
+  background-color: var(--_theme---background) !important;
+}
+
+/* Class/card rows */
+#momence-plugin-host-schedule .kMXxUA {
+  background-color: var(--_theme---background) !important;
+  color: var(--_theme---button-secondary--border) !important;
+  border: var(--border-width--main) solid var(--_theme---button-secondary--border) !important;
+  border-radius: var(--radius--main) !important;
+  filter: none !important;
+  padding: var(--_spacing---space--4-24px) !important;
+  margin-bottom: var(--_spacing---space--3-16px) !important;
+}
+
+#momence-plugin-host-schedule .kMXxUA:hover {
+  background-color: var(--_theme---button-secondary--border) !important;
+  color: var(--_theme---background) !important;
+}
+
+#momence-plugin-host-schedule .kMXxUA:hover .dropdown-element {
+  fill: var(--_theme---button-secondary--border) !important;
+}
+
+#momence-plugin-host-schedule .kMXxUA .dropdown-element:hover {
+  fill: var(--_theme---background) !important;
+}
+
+/* Top bar / filters — auto width */
+#momence-plugin-host-schedule .iwFGMX {
+  width: auto !important;
+}
+
+/* Filter buttons (SHOW ALL, TODAY) — filled style */
+#momence-plugin-host-schedule .EenGE {
+  font-size: var(--_typography---font-size--text-small) !important;
+  font-weight: var(--_typography---font--primary-medium) !important;
+  padding: 10px 16px !important;
+  background-color: var(--_theme---button-secondary--border) !important;
+  color: var(--_theme---background) !important;
+  border: var(--border-width--main) solid var(--_theme---button-secondary--border) !important;
+  border-radius: var(--radius--main) !important;
+  text-transform: uppercase !important;
+  letter-spacing: normal !important;
+}
+
+#momence-plugin-host-schedule .dzuDtr:hover {
+  background-color: var(--_theme---background) !important;
+  color: var(--_theme---button-secondary--border) !important;
+}
+
+/* Calendar / date picker popup */
+#momence-plugin-host-schedule .ghttAP {
+  background: var(--_theme---background) !important;
+  width: calc(80vw - 48px) !important;
+  max-width: 650px !important;
+  border: var(--border-width--main) solid var(--_theme---button-secondary--border) !important;
+}
+
+#momence-plugin-host-schedule .VUDYO {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  inset: 0;
+  justify-content: center;
+}
+
+#momence-plugin-host-schedule .bvbvYW {
+  background: var(--_theme---background) !important;
+  border: var(--border-width--main) solid var(--_theme---button-secondary--border) !important;
+}
+
+#momence-plugin-host-schedule .ghtaOW,
+#momence-plugin-host-schedule .ghtaOX {
+  background: var(--_theme---background) !important;
+}
+
+#momence-plugin-host-schedule .jstKiG:focus {
+  background: var(--_theme---button-secondary--border) !important;
+}
+
+/* Day/filter row layout */
+#momence-plugin-host-schedule .dIErQj {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_spacing---space--3-16px);
+  margin-bottom: var(--_spacing---space--4-24px);
+}
+
+@media (max-width: 768px) {
+  #momence-plugin-host-schedule .dIErQj {
+    flex-direction: column;
+  }
+  #momence-plugin-host-schedule .dIErQj > * {
+    width: 100%;
+  }
+}
+
+/* Powered by — hide into background */
+#momence-plugin-host-schedule .momence-host_schedule-powered_by_momence {
+  color: var(--_theme---background) !important;
+  background-color: var(--_theme---background) !important;
+  border-color: var(--_theme---background) !important;
+  fill: var(--_theme---background) !important;
+}
+
+/* Loader bar */
+#momence-plugin-host-schedule .kZOxIB {
+  margin-top: 2px;
+  height: 2px;
+  background: var(--_theme---button-secondary--border);
+  width: 0;
+  animation: momence-load 1s ease-out forwards;
+}
+
+@keyframes momence-load {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+#momence-plugin-host-schedule .dImvNj {
+  padding: 0 !important;
+}
+
+@media (max-width: 768px) {
+  #momence-plugin-host-schedule .bJDsCq {
+    width: 100%;
+  }
+}
+
+/* SVG arrows */
+#momence-plugin-host-schedule .eWUBDo svg path {
+  stroke: var(--_theme---button-secondary--border) !important;
+  fill: none !important;
+}
+
+/* Active tab underline */
+#momence-plugin-host-schedule .gZOyVg::after {
+  background: var(--_theme---button-secondary--border) !important;
+}
+
+/* Accordion component — styled to match htoggle container */
+.accordion_list {
+  border: var(--border-width--main) solid currentColor;
+  border-radius: var(--radius--main);
+  overflow: hidden;
+}
+
+.accordion_item {
+  border-top: var(--border-width--main) solid currentColor;
+  margin-top: calc(-1 * var(--border-width--main));
+}
+
+.accordion_toggle_button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--_spacing---space--4-24px) var(--_spacing---space--5-32px);
+  gap: var(--_spacing---space--4-24px);
+  text-align: left;
+  background: transparent;
+  color: inherit;
+  border: none;
+  font-family: inherit;
+  font-size: var(--_typography---font-size--text-main);
+  font-weight: var(--_typography---font--primary-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--_typography---letter-spacing--wider);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.accordion_toggle_button:hover {
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.accordion_component.is-active .accordion_toggle_button {
+  background-color: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.accordion_toggle_icon {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion_component.is-active .accordion_toggle_icon {
+  transform: rotate(90deg);
+}
+
+.accordion_toggle_text {
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+}
+
+.accordion_content_padding {
+  padding: var(--_spacing---space--4-24px) var(--_spacing---space--5-32px);
+}
+
+.accordion_content_text ol,
+.accordion_content_text ul {
+  padding-left: 1.5em;
+  margin: 0;
+}
+
+.accordion_content_text li {
+  margin-bottom: var(--_spacing---space--2-12px);
+}
+
+.accordion_content_text li:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,39 @@
+# Old WordPress site (reference only, not part of static build)
+Old Site/
+
+# Lumos/Webflow sandbox template (reference only)
+sandbox/
+
+# Documentation (internal reference)
+.docs/
+
+# Claude Code working files
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Standalone index variant (development draft)
+index-standalone.html
+
+# Build scripts
+build_standalone.py
+
+# Raw source material (Google Drive downloads, not final assets)
+assets/videos/drive-download-*/
+assets/videos/*.zip
+
+# Unused poster
+assets/videos/testimonials/poster.png
+
+# Large video files (compress to .mp4 before adding)
+*.mov
