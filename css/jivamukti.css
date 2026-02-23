@@ -1534,7 +1534,9 @@
 .news_modal_image_wrap {
   position: relative;
   background: #000;
-  flex: 0 0 42%;
+  flex: 0 0 auto;
+  width: 360px;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
 }
 
@@ -1662,7 +1664,8 @@
 
   .news_modal_image_wrap {
     flex: 0 0 auto;
-    aspect-ratio: 4 / 3;
+    width: 100%;
+    aspect-ratio: 4 / 5;
   }
 
   .news_modal_content {
