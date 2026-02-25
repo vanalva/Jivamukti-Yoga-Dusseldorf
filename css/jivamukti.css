@@ -1054,7 +1054,7 @@
    ========================================================================== */
 
 .schedule_embed_wrap {
-  min-height: 30rem;
+  min-height: 0;
 }
 
 /* Momence plugin color variables + full width */
