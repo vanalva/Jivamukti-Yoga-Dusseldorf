@@ -794,6 +794,25 @@
 }
 
 /* ==========================================================================
+   8b. METHOD PAGE: Tenet icons in tab panels
+   ========================================================================== */
+
+.method_tenet_image_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--_spacing---space--5-32px);
+  height: 100%;
+}
+
+.method_tenet_image_wrap img {
+  max-width: 10rem;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+/* ==========================================================================
    9. HORIZONTAL TOGGLE (Classes Section)
    Outlined tabs on the left, content panel on the right.
    On mobile: stacks vertically.
