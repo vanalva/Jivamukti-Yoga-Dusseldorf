@@ -764,124 +764,52 @@
 
 /* ==========================================================================
    8. CONTACT FORM
-   Additions beyond framework form_component
+   Overrides for Lumos form_component on brand section
    ========================================================================== */
 
-/* Form layout — fill available container width */
-.form_component {
+/* Ensure form fills full container width */
+.form_component,
+.form_wrap,
+.form_element {
   width: 100%;
 }
 
-/* Override framework 64px row-gap on form_element */
+/* Tighter gap between form sections (framework default is 64px) */
 .contact_form.form_element {
-  gap: var(--_spacing---space--2-12px);
+  gap: var(--_spacing---space--4-24px);
 }
 
-.form_row_2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--_spacing---space--2-12px);
-}
-
-/* Input & textarea: rounded, solid brand border, no opacity mixing */
+/* Input fields: rounded pill shape, brand-colored border */
 .form_field {
-  border-color: var(--swatch--brand-500);
+  border-color: var(--_theme---text);
   border-radius: var(--radius--round);
-  background-color: transparent;
   height: 3.25rem;
   padding: 0 1.25rem;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .form_field:focus {
-  border-color: var(--swatch--brand-500);
-  box-shadow: 0 0 0 1px var(--swatch--brand-500);
+  border-color: var(--_theme---text);
+  box-shadow: 0 0 0 1px var(--_theme---text);
 }
 
-.form_field::placeholder {
-  color: color-mix(in srgb, var(--_theme---text) 40%, transparent);
-}
-
-/* Textarea: softer radius, taller, proper padding */
-.form_textarea {
+/* Textarea: softer radius, taller */
+.form_field.is-textarea {
   border-radius: var(--radius--main);
   min-height: 10rem;
   padding: 1rem 1.25rem;
   resize: vertical;
 }
 
-/* Custom checkbox — no browser default */
-.form_checkbox_wrap {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--_spacing---space--2-12px);
-  margin-top: var(--_spacing---space--5-32px);
-  cursor: pointer;
-}
-
-.form_checkbox {
-  -webkit-appearance: none;
-  appearance: none;
-  flex-shrink: 0;
-  width: 1.375rem;
-  height: 1.375rem;
-  border: var(--border-width--main) solid var(--swatch--brand-500);
-  border-radius: var(--radius--small);
-  background-color: transparent;
-  cursor: pointer;
-  position: relative;
-  margin-top: 0.125rem;
-  transition: background-color 0.15s, border-color 0.15s;
-}
-
-.form_checkbox:checked {
-  background-color: var(--swatch--brand-500);
-  border-color: var(--swatch--brand-500);
-}
-
-.form_checkbox:checked::after {
-  content: "";
-  position: absolute;
-  top: 0.2rem;
-  left: 0.4rem;
-  width: 0.35rem;
-  height: 0.65rem;
-  border: solid var(--swatch--brand-text);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-
-.form_checkbox:focus-visible {
-  outline: 2px solid var(--swatch--brand-500);
-  outline-offset: 2px;
-}
-
-.form_checkbox_text {
-  font-size: var(--_typography---font-size--text-small);
-  line-height: 1.5;
-}
-
-.form_checkbox_text a {
+/* Checkbox link styling */
+.form_ui_text a {
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
 
-.form_checkbox_text a:hover {
-  color: var(--swatch--brand-500);
-}
-
-/* Submit button spacing */
-.form_submit_wrap {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: var(--_spacing---space--5-32px);
-}
-
-@container (width < 40em) {
-  .form_row_2col {
-    grid-template-columns: 1fr;
-  }
+.form_ui_text a:hover {
+  opacity: 0.7;
 }
 
 /* ==========================================================================
@@ -1064,8 +992,8 @@
 }
 
 .footer_nav_list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--_spacing---space--2-12px);
   list-style: none;
   margin: 0;

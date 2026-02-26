@@ -708,38 +708,62 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>Schreib uns eine Nachricht – wir melden uns schnellstmöglich bei dir.</p>
           </div>
 
-          <form class="form_component" method="POST" action="#" novalidate>
-            <div class="form_fields_grid">
-              <div class="form_field_wrap">
-                <label for="contact-name" class="form_label u-text-style-small">Name *</label>
-                <input type="text" id="contact-name" name="name" required class="form_input w-input" placeholder="Dein Name">
-              </div>
-              <div class="form_field_wrap">
-                <label for="contact-email" class="form_label u-text-style-small">E-Mail *</label>
-                <input type="email" id="contact-email" name="email" required class="form_input w-input" placeholder="Deine E-Mail-Adresse">
-              </div>
-            </div>
-            <div class="form_field_wrap u-margin-top-3">
-              <label for="contact-message" class="form_label u-text-style-small">Nachricht *</label>
-              <textarea id="contact-message" name="message" required class="form_textarea w-input" placeholder="Deine Nachricht" rows="5"></textarea>
-            </div>
-            <div class="form_field_wrap u-margin-top-3">
-              <label class="w-checkbox form_checkbox_wrap">
-                <input type="checkbox" name="privacy" required class="w-checkbox-input form_checkbox">
-                <span class="form_checkbox_label u-text-style-small">Ich stimme der <a href="legal/data-security.html">Datenschutzerklärung</a> zu. *</span>
-              </label>
-            </div>
-            <div class="u-margin-top-5">
-              <div data-wf--button-main--variant="primary" class="button_main_wrap" data-button=" " data-trigger="hover focus">
-                <div class="clickable_wrap u-cover-absolute">
-                  <button type="submit" aria-label="Absenden" class="clickable_link" style="border:none;background:none;cursor:pointer;width:100%;height:100%;position:absolute;top:0;left:0;"></button>
+          <div class="form_component">
+            <div class="form_wrap w-form">
+              <form class="form_element contact_form" method="POST" action="#" novalidate>
+                <!-- Name + Email: 2-column grid -->
+                <fieldset data-wf--form-fieldset--variant="grid-2-column" class="form_fieldset_wrap">
+                  <legend data-wf--form-label-text--variant="hidden" class="form_label_text w-variant-46933b79-cf19-81b4-bc00-8af5c19b08b3">Kontaktdaten</legend>
+                  <div role="none" class="form_fieldset_list w-variant-14c165fa-7397-02ef-8dc0-6e307b6c980f">
+                    <label data-trigger="focus" class="form_label_wrap">
+                      <span data-wf--form-label-text--variant="visible" class="form_label_text">Name *</span>
+                      <input name="name" type="text" placeholder="Dein Name" required class="form_field" value="">
+                    </label>
+                    <label data-trigger="focus" class="form_label_wrap">
+                      <span data-wf--form-label-text--variant="visible" class="form_label_text">E-Mail *</span>
+                      <input name="email" type="email" placeholder="Deine E-Mail-Adresse" required class="form_field" value="">
+                    </label>
+                  </div>
+                </fieldset>
+                <!-- Message -->
+                <label data-trigger="focus" class="form_label_wrap">
+                  <span data-wf--form-label-text--variant="visible" class="form_label_text">Nachricht *</span>
+                  <textarea name="message" placeholder="Deine Nachricht" required class="form_field is-textarea"></textarea>
+                </label>
+                <!-- Privacy checkbox -->
+                <fieldset data-wf--form-fieldset--variant="flex-horizontal" class="form_fieldset_wrap">
+                  <legend data-wf--form-label-text--variant="hidden" class="form_label_text w-variant-46933b79-cf19-81b4-bc00-8af5c19b08b3">Datenschutz</legend>
+                  <div role="list" class="form_fieldset_list w-variant-ccbf2df7-16d0-30d7-0afb-0df098785596">
+                    <div role="listitem" data-state="checked" class="form_ui_item">
+                      <label data-wf--check-ui--variant="checkbox" role="listitem" data-state="checked" class="form_ui_label">
+                        <input type="checkbox" name="privacy" required class="form_ui_input" value="agreed">
+                        <span class="form_ui_visual_wrap">
+                          <span class="form_ui_visual_inner">
+                            <svg viewbox="0 0 11 8" fill="none" aria-hidden="true" class="form_ui_visual_icon">
+                              <path d="M1 4L4 7L10 1" stroke="currentColor" vector-effect="non-scaling-stroke" stroke-width="0.125rem"></path>
+                            </svg>
+                          </span>
+                        </span>
+                        <span class="form_ui_text">Ich stimme der <a href="legal/data-security.html">Datenschutzerklärung</a> zu. *</span>
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+                <!-- Submit -->
+                <div class="u-button-wrapper u-margin-top-0">
+                  <div class="u-display-contents">
+                    <div data-wf--button-main--variant="primary" class="button_main_wrap" data-button=" " data-trigger="hover focus">
+                      <div class="clickable_wrap u-cover-absolute"><button type="submit" aria-label="Absenden" class="clickable_btn"></button></div>
+                      <div class="button_main_element">
+                        <div aria-hidden="true" class="button_main_text u-text-style-main">Absenden</div>
+                        <div class="button_main_icon u-hide-if-empty"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="button_main_element">
-                  <div aria-hidden="true" class="button_main_text u-text-style-main">Absenden</div>
-                </div>
-              </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
         <div data-wf--spacer--variant="main" class="u-section-spacer w-variant-60a7ad7d-02b0-6682-95a5-2218e6fd1490 u-ignore-trim"></div>
       </section>

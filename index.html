@@ -708,37 +708,80 @@ document.addEventListener("DOMContentLoaded", function () {
       <section class="u-section contact_section">
         <div data-wf--spacer--variant="main" class="u-section-spacer w-variant-60a7ad7d-02b0-6682-95a5-2218e6fd1490 u-ignore-trim"></div>
         <div class="u-container">
-          <div data-wf--typography-heading--variant="display" class="u-heading w-variant-eee56f15-d7ce-d101-2f8c-83b3bbd55d4a u-heading-accent u-alignment-center">
-            <h2 class="u-text-style-display">Kontaktiere <strong>uns</strong></h2>
+          <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389 u-alignment-center">
+            <h2 class="u-text-style-h2">Kontaktiere Uns</h2>
           </div>
           <div class="form_component u-margin-top-6">
-            <form name="contact-form" method="post" class="contact_form form_element">
-              <div class="form_row_2col">
-                <input name="name" type="text" placeholder="Name" class="form_field" required>
-                <input name="email" type="email" placeholder="E-Mail-Adresse" class="form_field" required>
-              </div>
-              <div class="form_row_2col">
-                <input name="phone" type="tel" placeholder="Telefonnummer" class="form_field">
-                <input name="subject" type="text" placeholder="Betreff" class="form_field">
-              </div>
-              <textarea name="message" placeholder="Nachricht" class="form_field form_textarea" required></textarea>
-              <label class="form_checkbox_wrap">
-                <input type="checkbox" name="consent" class="form_checkbox" required>
-                <span class="form_checkbox_text">Ich habe die <a href="legal/data-security.html" target="_blank">Datenschutzerklärung</a> gelesen und bin damit einverstanden.</span>
-              </label>
-              <div class="form_submit_wrap">
-                <div data-wf--button-main--variant="primary" class="button_main_wrap" data-button=" " data-trigger="hover focus">
-                  <div class="clickable_wrap u-cover-absolute">
-                    <button type="submit" aria-label="Absenden" class="clickable_btn"></button>
+            <div class="form_wrap w-form">
+              <form name="contact-form" method="post" class="contact_form form_element" novalidate>
+                <!-- Name + Email: 2-column grid -->
+                <fieldset data-wf--form-fieldset--variant="grid-2-column" class="form_fieldset_wrap">
+                  <legend data-wf--form-label-text--variant="hidden" class="form_label_text w-variant-46933b79-cf19-81b4-bc00-8af5c19b08b3">Kontaktdaten</legend>
+                  <div role="none" class="form_fieldset_list w-variant-14c165fa-7397-02ef-8dc0-6e307b6c980f">
+                    <label data-trigger="focus" class="form_label_wrap">
+                      <span data-wf--form-label-text--variant="visible" class="form_label_text">Name *</span>
+                      <input name="name" type="text" placeholder="Dein Name" required class="form_field" value="">
+                    </label>
+                    <label data-trigger="focus" class="form_label_wrap">
+                      <span data-wf--form-label-text--variant="visible" class="form_label_text">E-Mail *</span>
+                      <input name="email" type="email" placeholder="Deine E-Mail-Adresse" required class="form_field" value="">
+                    </label>
                   </div>
-                  <div class="button_main_element">
-                    <div aria-hidden="true" class="button_main_text u-text-style-main">Absenden</div>
+                </fieldset>
+                <!-- Phone + Subject: 2-column grid -->
+                <fieldset data-wf--form-fieldset--variant="grid-2-column" class="form_fieldset_wrap">
+                  <legend data-wf--form-label-text--variant="hidden" class="form_label_text w-variant-46933b79-cf19-81b4-bc00-8af5c19b08b3">Weitere Angaben</legend>
+                  <div role="none" class="form_fieldset_list w-variant-14c165fa-7397-02ef-8dc0-6e307b6c980f">
+                    <label data-trigger="focus" class="form_label_wrap">
+                      <span data-wf--form-label-text--variant="visible" class="form_label_text">Telefonnummer</span>
+                      <input name="phone" type="tel" placeholder="Deine Telefonnummer" class="form_field" value="">
+                    </label>
+                    <label data-trigger="focus" class="form_label_wrap">
+                      <span data-wf--form-label-text--variant="visible" class="form_label_text">Betreff</span>
+                      <input name="subject" type="text" placeholder="Betreff" class="form_field" value="">
+                    </label>
+                  </div>
+                </fieldset>
+                <!-- Message -->
+                <label data-trigger="focus" class="form_label_wrap">
+                  <span data-wf--form-label-text--variant="visible" class="form_label_text">Nachricht *</span>
+                  <textarea name="message" placeholder="Deine Nachricht" required class="form_field is-textarea"></textarea>
+                </label>
+                <!-- Privacy checkbox -->
+                <fieldset data-wf--form-fieldset--variant="flex-horizontal" class="form_fieldset_wrap">
+                  <legend data-wf--form-label-text--variant="hidden" class="form_label_text w-variant-46933b79-cf19-81b4-bc00-8af5c19b08b3">Datenschutz</legend>
+                  <div role="list" class="form_fieldset_list w-variant-ccbf2df7-16d0-30d7-0afb-0df098785596">
+                    <div role="listitem" data-state="checked" class="form_ui_item">
+                      <label data-wf--check-ui--variant="checkbox" role="listitem" data-state="checked" class="form_ui_label">
+                        <input type="checkbox" name="consent" required class="form_ui_input" value="agreed">
+                        <span class="form_ui_visual_wrap">
+                          <span class="form_ui_visual_inner">
+                            <svg viewbox="0 0 11 8" fill="none" aria-hidden="true" class="form_ui_visual_icon">
+                              <path d="M1 4L4 7L10 1" stroke="currentColor" vector-effect="non-scaling-stroke" stroke-width="0.125rem"></path>
+                            </svg>
+                          </span>
+                        </span>
+                        <span class="form_ui_text">Ich habe die <a href="legal/data-security.html" target="_blank">Datenschutzerklärung</a> gelesen und bin damit einverstanden.</span>
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+                <!-- Submit -->
+                <div class="u-button-wrapper u-margin-top-0">
+                  <div class="u-display-contents">
+                    <div data-wf--button-main--variant="primary" class="button_main_wrap" data-button=" " data-trigger="hover focus">
+                      <div class="clickable_wrap u-cover-absolute"><button type="submit" aria-label="Absenden" class="clickable_btn"></button></div>
+                      <div class="button_main_element">
+                        <div aria-hidden="true" class="button_main_text u-text-style-main">Absenden</div>
+                        <div class="button_main_icon u-hide-if-empty"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              </form>
+              <div class="form_success_wrap" hidden>
+                <p>Vielen Dank! Ihre Nachricht wurde gesendet.</p>
               </div>
-            </form>
-            <div class="form_success_wrap" hidden>
-              <p>Vielen Dank! Ihre Nachricht wurde gesendet.</p>
             </div>
           </div>
           <div class="u-text u-alignment-center u-margin-top-4">
