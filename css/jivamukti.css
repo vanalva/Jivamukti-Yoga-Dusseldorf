@@ -192,9 +192,15 @@
   --_theme---selection--text: var(--swatch--tertiary-500);
 }
 
-/* Dark sections on method page: keep heading readable */
+/* Dark sections on method page: green buttons + readable headings */
 .method-page [data-wf--section--variant="dark"] {
   --_theme---heading-accent: var(--swatch--light-200);
+  --_theme---button-primary--background: var(--swatch--tertiary-500);
+  --_theme---button-primary--border: var(--swatch--tertiary-500);
+  --_theme---button-primary--text: var(--swatch--light-100);
+  --_theme---button-primary--background-hover: var(--swatch--light-100);
+  --_theme---button-primary--text-hover: var(--swatch--tertiary-500);
+  --_theme---button-primary--border-hover: var(--swatch--light-100);
 }
 
 /* ==========================================================================
