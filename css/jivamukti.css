@@ -404,7 +404,7 @@
 }
 
 .u-min-height-half {
-  min-height: 50vh;
+  min-height: 60vh;
 }
 
 /* ==========================================================================
@@ -421,7 +421,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--_spacing---space--5-32px);
-  height: 28rem;
 }
 
 .carousel_slide_image {
@@ -429,6 +428,7 @@
   border-radius: var(--radius--main);
   position: relative;
   min-height: 0;
+  aspect-ratio: 4 / 5;
 }
 
 .carousel_slide_image img {
@@ -499,7 +499,7 @@
     height: auto;
   }
   .carousel_slide_image {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 5;
   }
   .carousel_slide_content {
     padding: var(--_spacing---space--4-24px) 0;
@@ -527,7 +527,7 @@
 
 .feature_card_image_wrap {
   overflow: hidden;
-  max-height: 25rem;
+  aspect-ratio: 1 / 1;
 }
 
 .feature_card_image_wrap.is-collapsed {
@@ -536,7 +536,7 @@
 
 .feature_card_image_wrap img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
 }
