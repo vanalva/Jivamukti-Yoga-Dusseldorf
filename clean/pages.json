@@ -1,0 +1,317 @@
+{
+  "generated": "2026-03-04T21:04:05",
+  "total_pages": 13,
+  "pages": [
+    {
+      "slug": "index",
+      "title": "Jivamukti Yoga Düsseldorf",
+      "path": "index.html",
+      "url": "/",
+      "sections": [
+        "nav",
+        "hero",
+        "carousel",
+        "feature_cards",
+        "quote",
+        "about_cta",
+        "contact",
+        "marquee",
+        "fullwidth_photo",
+        "footer",
+        "classes"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery",
+        "swiper-8"
+      ]
+    },
+    {
+      "slug": "about",
+      "title": "Über Uns | Jivamukti Yoga Düsseldorf",
+      "path": "pages/about.html",
+      "url": "/about",
+      "sections": [
+        "nav",
+        "carousel",
+        "feature_cards",
+        "quote",
+        "about_cta",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery",
+        "swiper-8"
+      ]
+    },
+    {
+      "slug": "method",
+      "title": "Method | Jivamukti Yoga Düsseldorf",
+      "path": "pages/method.html",
+      "url": "/method",
+      "sections": [
+        "nav",
+        "video_hero",
+        "quote",
+        "about_cta",
+        "accordion",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery",
+        "gsap-3.12"
+      ]
+    },
+    {
+      "slug": "studio",
+      "title": "Das Studio | Jivamukti Yoga Düsseldorf",
+      "path": "pages/studio.html",
+      "url": "/studio",
+      "sections": [
+        "nav",
+        "carousel",
+        "feature_cards",
+        "about_cta",
+        "contact",
+        "fullwidth_photo",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery",
+        "swiper-8"
+      ]
+    },
+    {
+      "slug": "schedule",
+      "title": "Kursplan | Jivamukti Yoga Düsseldorf",
+      "path": "pages/schedule.html",
+      "url": "/schedule",
+      "sections": [
+        "nav",
+        "hero",
+        "accordion",
+        "marquee",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery",
+        "gsap-3.12"
+      ]
+    },
+    {
+      "slug": "prices",
+      "title": "Preise | Jivamukti Yoga Düsseldorf",
+      "path": "pages/prices.html",
+      "url": "/prices",
+      "sections": [
+        "nav",
+        "feature_cards",
+        "quote",
+        "about_cta",
+        "accordion",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery",
+        "gsap-3.12"
+      ]
+    },
+    {
+      "slug": "news",
+      "title": "Neuigkeiten | Jivamukti Yoga Düsseldorf",
+      "path": "pages/news.html",
+      "url": "/news",
+      "sections": [
+        "nav",
+        "hero",
+        "marquee",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js",
+        "js/news.js"
+      ],
+      "cdn": [
+        "jquery"
+      ]
+    },
+    {
+      "slug": "events",
+      "title": "J-Y Teacher Trainings | Jivamukti Yoga Düsseldorf",
+      "path": "pages/events.html",
+      "url": "/events",
+      "sections": [
+        "nav",
+        "hero",
+        "marquee",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery"
+      ]
+    },
+    {
+      "slug": "workshops",
+      "title": "Workshops | Jivamukti Yoga Düsseldorf",
+      "path": "pages/workshops.html",
+      "url": "/workshops",
+      "sections": [
+        "nav",
+        "hero",
+        "marquee",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery"
+      ]
+    },
+    {
+      "slug": "75h-teacher-training",
+      "title": "75HR Teacher Training | Jivamukti Yoga Düsseldorf",
+      "path": "pages/75h-teacher-training.html",
+      "url": "/75h-teacher-training",
+      "sections": [
+        "nav",
+        "hero",
+        "feature_cards",
+        "accordion",
+        "marquee",
+        "footer",
+        "testimonials"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery",
+        "gsap-3.12"
+      ]
+    },
+    {
+      "slug": "data-security",
+      "title": "Datenschutzerklärung | Jivamukti Yoga Düsseldorf",
+      "path": "pages/legal/data-security.html",
+      "url": "/legal/data-security",
+      "sections": [
+        "nav",
+        "marquee",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery"
+      ]
+    },
+    {
+      "slug": "impressum",
+      "title": "Impressum | Jivamukti Yoga Düsseldorf",
+      "path": "pages/legal/impressum.html",
+      "url": "/legal/impressum",
+      "sections": [
+        "nav",
+        "marquee",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery"
+      ]
+    },
+    {
+      "slug": "terms-and-conditions",
+      "title": "AGB | Jivamukti Yoga Düsseldorf",
+      "path": "pages/legal/terms-and-conditions.html",
+      "url": "/legal/terms-and-conditions",
+      "sections": [
+        "nav",
+        "marquee",
+        "footer"
+      ],
+      "css": [
+        "css/site.css"
+      ],
+      "js": [
+        "js/webflow.js",
+        "js/main.js"
+      ],
+      "cdn": [
+        "jquery"
+      ]
+    }
+  ]
+}

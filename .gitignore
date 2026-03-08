@@ -37,3 +37,15 @@ assets/videos/testimonials/poster.png
 
 # Large video files (compress to .mp4 before adding)
 *.mov
+
+# Source image batches (multi-breakpoint originals, not for deployment)
+**/new-batch/
+
+# Build/migration scripts and archives
+build_clean.py
+consolidate_css.py
+rename_w_classes.py
+resolve_variables.py
+webflow-migration.css
+webflow-migration.html
+*.zip
