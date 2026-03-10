@@ -6,42 +6,48 @@
   'use strict';
 
   /* ========================================================================
-     1. SWIPER CAROUSEL
+     1. FADE CAROUSEL
      ======================================================================== */
 
   function initCarousel() {
-    var swiperEl = document.querySelector('.carousel_swiper');
-    if (!swiperEl || typeof Swiper === 'undefined') return;
+    var wrap = document.querySelector('.carousel_wrap');
+    if (!wrap) return;
 
-    var progressBar = document.querySelector('.carousel_progress_bar');
+    var images = wrap.querySelectorAll('.carousel_fade_img');
+    var track = wrap.querySelector('.carousel_text_track');
+    var panels = wrap.querySelectorAll('.carousel_slide_content');
+    var progressBar = wrap.querySelector('.carousel_progress_bar');
+    var btnPrev = wrap.querySelector('.carousel_btn_prev');
+    var btnNext = wrap.querySelector('.carousel_btn_next');
+    var total = panels.length;
+    var current = 0;
     var autoplayDuration = 7000;
+    var timer;
 
-    var swiper = new Swiper('.carousel_swiper', {
-      slidesPerView: 1,
-      loop: true,
-      speed: 600,
-      autoplay: {
-        delay: autoplayDuration,
-        disableOnInteraction: false,
-      },
-      navigation: {
-        prevEl: '.carousel_btn_prev',
-        nextEl: '.carousel_btn_next',
-      },
-    });
-
-    if (progressBar) {
-      var realTotal = document.querySelectorAll('.carousel_swiper .swiper-slide:not(.swiper-slide-duplicate)').length;
-
-      function updateProgress() {
-        var realIndex = swiper.realIndex;
-        var progress = ((realIndex + 1) / realTotal) * 100;
-        progressBar.style.width = progress + '%';
+    function goTo(idx) {
+      current = ((idx % total) + total) % total;
+      images.forEach(function (img) {
+        img.classList.toggle('is-active', Number(img.dataset.slide) === current);
+      });
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      if (progressBar) {
+        progressBar.style.width = ((current + 1) / total) * 100 + '%';
       }
-
-      swiper.on('slideChange', updateProgress);
-      updateProgress();
     }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAutoplay() {
+      clearInterval(timer);
+      timer = setInterval(next, autoplayDuration);
+    }
+
+    if (btnNext) btnNext.addEventListener('click', function () { next(); startAutoplay(); });
+    if (btnPrev) btnPrev.addEventListener('click', function () { prev(); startAutoplay(); });
+
+    goTo(0);
+    startAutoplay();
   }
 
   /* ========================================================================

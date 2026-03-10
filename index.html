@@ -354,79 +354,67 @@ document.addEventListener("DOMContentLoaded", function () {
         <div data-wf--spacer--variant="main" class="u-section-spacer w-variant-60a7ad7d-02b0-6682-95a5-2218e6fd1490 u-ignore-trim"></div>
         <div class="u-container">
           <div class="carousel_wrap">
-            <div class="swiper carousel_swiper">
-              <div class="swiper-wrapper">
-                <!-- Slide 1: Das Studio -->
-                <div class="swiper-slide">
-                  <div class="carousel_slide_layout">
-                    <div class="carousel_slide_image">
-                      <img src="assets/images/the-studio-hero-2.webp" alt="Das Studio" loading="lazy">
-                    </div>
-                    <div class="carousel_slide_content">
-                      <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
-                        <h2 class="u-text-style-h2">Das Studio</h2>
+            <div class="carousel_slide_layout">
+              <!-- Fixed image column — fades between slides -->
+              <div class="carousel_slide_image">
+                <img src="assets/images/the-studio-hero-2.webp" alt="Das Studio" class="carousel_fade_img is-active" data-slide="0">
+                <img src="assets/images/home-community.webp" alt="Das Team" class="carousel_fade_img" data-slide="1">
+                <img src="assets/images/dusseldrof.webp" alt="Die Umgebung" class="carousel_fade_img" data-slide="2">
+              </div>
+              <!-- Text column — slides horizontally -->
+              <div class="carousel_text_column">
+                <div class="carousel_text_track">
+                <!-- Panel 1: Das Studio -->
+                <div class="carousel_slide_content" data-slide="0">
+                  <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
+                    <h2 class="u-text-style-h2">Das Studio</h2>
+                  </div>
+                  <div class="u-text u-margin-top-3">
+                    <p>Jivamukti Yoga D&uuml;sseldorf liegt im belebten Stadtteil Friedrichstadt und ist mehr als nur ein Ort zum Yoga &uuml;ben. Es ist eine Oase f&uuml;r Wachstum und Transformation. Als erste offizielle Jivamukti Yoga Schule in NRW wurde es mit Liebe gestaltet um einer wachsenden Community einen herzlichen und angenehmen Raum zu bieten.</p>
+                    <p>Der gro&szlig;e Yoga Saal, der etwa 120qm umfasst, war vor langer Zeit ein traditionsreiches Tanzstudio. Zuletzt wurden in den R&auml;umlichkeiten viele Jahre Brautmoden verkauft. Liebe und W&auml;rme befinden sich noch immer in den W&auml;nden, die jetzt Bewegung, Meditation und Verbindung beherbergen. Egal ob du deine Praxis vertiefen, innere Stille finden oder dich einfach mit anderen Menschen verbinden willst &ndash; das Jivamukti Yoga D&uuml;sseldorf und sein Team unterst&uuml;tzen dich auf dieser Reise.</p>
+                    <p>Unsere Location kann man f&uuml;r externe Veranstaltungen mieten. Sprecht uns gern darauf an oder schreibt uns eine <a href="mailto:info@jivamuktiyogaduesseldorf.com">E-Mail</a>.</p>
+                  </div>
+                  <div class="u-margin-top-5">
+                    <div data-wf--button-main--variant="secondary" class="button_main_wrap" data-button=" " data-trigger="hover focus">
+                      <div class="clickable_wrap u-cover-absolute">
+                        <a href="pages/studio.html" aria-label="Kontakt" class="clickable_link w-inline-block"></a>
                       </div>
-                      <div class="u-text u-margin-top-3">
-                        <p>Jivamukti Yoga D&uuml;sseldorf liegt im belebten Stadtteil Friedrichstadt und ist mehr als nur ein Ort zum Yoga &uuml;ben. Es ist eine Oase f&uuml;r Wachstum und Transformation. Als erste offizielle Jivamukti Yoga Schule in NRW wurde es mit Liebe gestaltet um einer wachsenden Community einen herzlichen und angenehmen Raum zu bieten.</p>
-                        <p>Der gro&szlig;e Yoga Saal, der etwa 120qm umfasst, war vor langer Zeit ein traditionsreiches Tanzstudio. Zuletzt wurden in den R&auml;umlichkeiten viele Jahre Brautmoden verkauft. Liebe und W&auml;rme befinden sich noch immer in den W&auml;nden, die jetzt Bewegung, Meditation und Verbindung beherbergen. Egal ob du deine Praxis vertiefen, innere Stille finden oder dich einfach mit anderen Menschen verbinden willst &ndash; das Jivamukti Yoga D&uuml;sseldorf und sein Team unterst&uuml;tzen dich auf dieser Reise.</p>
-                        <p>Unsere Location kann man f&uuml;r externe Veranstaltungen mieten. Sprecht uns gern darauf an oder schreibt uns eine <a href="mailto:info@jivamuktiyogaduesseldorf.com">E-Mail</a>.</p>
-                      </div>
-                      <div class="u-margin-top-5">
-                        <div data-wf--button-main--variant="secondary" class="button_main_wrap" data-button=" " data-trigger="hover focus">
-                          <div class="clickable_wrap u-cover-absolute">
-                            <a href="pages/studio.html" aria-label="Kontakt" class="clickable_link w-inline-block"></a>
-                          </div>
-                          <div class="button_main_element w-variant-e85564cd-af30-a478-692b-71732aefb3ab">
-                            <div aria-hidden="true" class="button_main_text u-text-style-main">Kontakt</div>
-                          </div>
-                        </div>
+                      <div class="button_main_element w-variant-e85564cd-af30-a478-692b-71732aefb3ab">
+                        <div aria-hidden="true" class="button_main_text u-text-style-main">Kontakt</div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- Slide 2: Das Team -->
-                <div class="swiper-slide">
-                  <div class="carousel_slide_layout">
-                    <div class="carousel_slide_image">
-                      <img src="assets/images/home-community.webp" alt="Das Team" loading="lazy">
-                    </div>
-                    <div class="carousel_slide_content">
-                      <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
-                        <h2 class="u-text-style-h2">Das Team</h2>
+                <!-- Panel 2: Das Team -->
+                <div class="carousel_slide_content" data-slide="1">
+                  <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
+                    <h2 class="u-text-style-h2">Das Team</h2>
+                  </div>
+                  <div class="u-text u-margin-top-3">
+                    <p>Das Herz der Jivamukti Yoga Schule D&uuml;sseldorf sind Glikeria und Helene, zwei leidenschaftliche Yoga Praktizierende, die schon lange die Vorstellung hatten, einen Raum f&uuml;r Gleichgesinnte zu schaffen.</p>
+                    <p>Tief verbunden mit der Jivamukti Yoga Methode war nicht nur der k&ouml;rperliche Aspekt des Yoga Antrieb daf&uuml;r &ndash; vielmehr geht es den beiden darum Verbindungen aufzubauen, Erfahrungen zu teilen und ein Zugeh&ouml;rigkeitsgef&uuml;hl zu kreieren. Sie beide glauben an die sch&ouml;pferische Kraft des Yoga, Menschen zusammenzubringen um gemeinsam zu atmen, zu meditieren, zu lachen und neue Perspektiven anzunehmen. Ihr gemeinsamer Traum war es, nicht nur ein Yoga Studio zu er&ouml;ffnen, sondern ein Zuhause, wo sich jede*r einzelne der Gemeinschaft willkommen, gesch&auml;tzt und inspiriert f&uuml;hlt.</p>
+                  </div>
+                  <div class="u-margin-top-5">
+                    <div data-wf--button-main--variant="secondary" class="button_main_wrap" data-button=" " data-trigger="hover focus">
+                      <div class="clickable_wrap u-cover-absolute">
+                        <a href="pages/about.html" aria-label="Mehr erfahren" class="clickable_link w-inline-block"></a>
                       </div>
-                      <div class="u-text u-margin-top-3">
-                        <p>Das Herz der Jivamukti Yoga Schule D&uuml;sseldorf sind Glikeria und Helene, zwei leidenschaftliche Yoga Praktizierende, die schon lange die Vorstellung hatten, einen Raum f&uuml;r Gleichgesinnte zu schaffen.</p>
-                        <p>Tief verbunden mit der Jivamukti Yoga Methode war nicht nur der k&ouml;rperliche Aspekt des Yoga Antrieb daf&uuml;r &ndash; vielmehr geht es den beiden darum Verbindungen aufzubauen, Erfahrungen zu teilen und ein Zugeh&ouml;rigkeitsgef&uuml;hl zu kreieren. Sie beide glauben an die sch&ouml;pferische Kraft des Yoga, Menschen zusammenzubringen um gemeinsam zu atmen, zu meditieren, zu lachen und neue Perspektiven anzunehmen. Ihr gemeinsamer Traum war es, nicht nur ein Yoga Studio zu er&ouml;ffnen, sondern ein Zuhause, wo sich jede*r einzelne der Gemeinschaft willkommen, gesch&auml;tzt und inspiriert f&uuml;hlt.</p>
-                      </div>
-                      <div class="u-margin-top-5">
-                        <div data-wf--button-main--variant="secondary" class="button_main_wrap" data-button=" " data-trigger="hover focus">
-                          <div class="clickable_wrap u-cover-absolute">
-                            <a href="pages/about.html" aria-label="Mehr erfahren" class="clickable_link w-inline-block"></a>
-                          </div>
-                          <div class="button_main_element w-variant-e85564cd-af30-a478-692b-71732aefb3ab">
-                            <div aria-hidden="true" class="button_main_text u-text-style-main">Mehr erfahren</div>
-                          </div>
-                        </div>
+                      <div class="button_main_element w-variant-e85564cd-af30-a478-692b-71732aefb3ab">
+                        <div aria-hidden="true" class="button_main_text u-text-style-main">Mehr erfahren</div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- Slide 3: Die Umgebung -->
-                <div class="swiper-slide">
-                  <div class="carousel_slide_layout">
-                    <div class="carousel_slide_image">
-                      <img src="assets/images/dusseldrof.webp" alt="Die Umgebung" loading="lazy">
-                    </div>
-                    <div class="carousel_slide_content">
-                      <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
-                        <h2 class="u-text-style-h2">Die Umgebung</h2>
-                      </div>
-                      <div class="u-text u-margin-top-3">
-                        <p>Die Umgebung ist bekannt f&uuml;r die lebendige Energie, die kulturelle Vielfalt und die reiche Historie. Friedrichstadt ist ein Stadtteil, der Altes mit Neuem so wundervoll verbindet. Traditionelle Architektur gepaart mit modernem Komfort.</p>
-                        <p>Wenn du das Studio verl&auml;sst, befindest du dich mitten im Leben &ndash; Caf&eacute;s, Parks, kleine Gesch&auml;fte bilden die Nachbarschaft und lassen dich den einzigartigen Charme von D&uuml;sseldorf erleben. Jeder Besuch im Jivamukti Yoga Studio D&uuml;sseldorf bietet die perfekte Mischung zwischen Entspannung und Inspiration.</p>
-                      </div>
-                    </div>
+                <!-- Panel 3: Die Umgebung -->
+                <div class="carousel_slide_content" data-slide="2">
+                  <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
+                    <h2 class="u-text-style-h2">Die Umgebung</h2>
                   </div>
+                  <div class="u-text u-margin-top-3">
+                    <p>Die Umgebung ist bekannt f&uuml;r die lebendige Energie, die kulturelle Vielfalt und die reiche Historie. Friedrichstadt ist ein Stadtteil, der Altes mit Neuem so wundervoll verbindet. Traditionelle Architektur gepaart mit modernem Komfort.</p>
+                    <p>Wenn du das Studio verl&auml;sst, befindest du dich mitten im Leben &ndash; Caf&eacute;s, Parks, kleine Gesch&auml;fte bilden die Nachbarschaft und lassen dich den einzigartigen Charme von D&uuml;sseldorf erleben. Jeder Besuch im Jivamukti Yoga Studio D&uuml;sseldorf bietet die perfekte Mischung zwischen Entspannung und Inspiration.</p>
+                  </div>
+                </div>
                 </div>
               </div>
             </div>

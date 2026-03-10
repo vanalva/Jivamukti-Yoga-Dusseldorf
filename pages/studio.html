@@ -344,58 +344,46 @@ document.addEventListener("DOMContentLoaded", function () {
         <div data-wf--spacer--variant="main" class="u-section-spacer w-variant-60a7ad7d-02b0-6682-95a5-2218e6fd1490 u-ignore-trim"></div>
         <div class="u-container">
           <div class="carousel_wrap">
-            <div class="swiper carousel_swiper">
-              <div class="swiper-wrapper">
-                <!-- Slide 1: Der Raum -->
-                <div class="swiper-slide">
-                  <div class="carousel_slide_layout">
-                    <div class="carousel_slide_image">
-                      <img src="../assets/images/the-studio-hero.webp" alt="Der Raum" loading="lazy">
-                    </div>
-                    <div class="carousel_slide_content">
-                      <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
-                        <h2 class="u-text-style-h2">Der Raum</h2>
-                      </div>
-                      <div class="u-text u-margin-top-3">
-                        <p>Das Studio umfasst insgesamt 220 qm, davon 120 qm ein heller, klar gestalteter Yogaraum, der dir gro&szlig;z&uuml;gig Platz f&uuml;r Konzentration, Ruhe und bewusste Bewegung bietet. Die Atmosph&auml;re ist warm, minimalistisch und geerdet &ndash; ein Ort, an dem du ankommen und durchatmen kannst.</p>
-                        <p>Ein gro&szlig;z&uuml;giger Vorraum mit einer einladenden Couch und einem gro&szlig;en Gemeinschaftstisch l&auml;dt zum Verweilen, Austauschen oder stillen Ankommen bei einer Tasse Tee ein. Eine ger&auml;umige Garderobe sorgt daf&uuml;r, dass du dich von Anfang an willkommen und gut aufgehoben f&uuml;hlst.</p>
-                      </div>
-                    </div>
+            <div class="carousel_slide_layout">
+              <!-- Fixed image column — fades between slides -->
+              <div class="carousel_slide_image">
+                <img src="../assets/images/the-studio-hero.webp" alt="Der Raum" class="carousel_fade_img is-active" data-slide="0">
+                <img src="../assets/images/events-hero.webp" alt="Ausstattung" class="carousel_fade_img" data-slide="1">
+                <img src="../assets/images/the-area.webp" alt="Umgebung" class="carousel_fade_img" data-slide="2">
+              </div>
+              <!-- Text column — slides horizontally -->
+              <div class="carousel_text_column">
+                <div class="carousel_text_track">
+                <!-- Panel 1: Der Raum -->
+                <div class="carousel_slide_content" data-slide="0">
+                  <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
+                    <h2 class="u-text-style-h2">Der Raum</h2>
+                  </div>
+                  <div class="u-text u-margin-top-3">
+                    <p>Das Studio umfasst insgesamt 220 qm, davon 120 qm ein heller, klar gestalteter Yogaraum, der dir gro&szlig;z&uuml;gig Platz f&uuml;r Konzentration, Ruhe und bewusste Bewegung bietet. Die Atmosph&auml;re ist warm, minimalistisch und geerdet &ndash; ein Ort, an dem du ankommen und durchatmen kannst.</p>
+                    <p>Ein gro&szlig;z&uuml;giger Vorraum mit einer einladenden Couch und einem gro&szlig;en Gemeinschaftstisch l&auml;dt zum Verweilen, Austauschen oder stillen Ankommen bei einer Tasse Tee ein. Eine ger&auml;umige Garderobe sorgt daf&uuml;r, dass du dich von Anfang an willkommen und gut aufgehoben f&uuml;hlst.</p>
                   </div>
                 </div>
-                <!-- Slide 2: Ausstattung -->
-                <div class="swiper-slide">
-                  <div class="carousel_slide_layout">
-                    <div class="carousel_slide_image">
-                      <img src="../assets/images/events-hero.webp" alt="Ausstattung" loading="lazy">
-                    </div>
-                    <div class="carousel_slide_content">
-                      <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
-                        <h2 class="u-text-style-h2">Ausstattung</h2>
-                      </div>
-                      <div class="u-text u-margin-top-3">
-                        <p>Matten, Gurte, Bl&ouml;cke, Decken und Bolster stehen dir vor Ort zur Verf&uuml;gung, sodass du dich ganz auf deine Praxis konzentrieren kannst.</p>
-                        <p>Zus&auml;tzlich verf&uuml;gt das Studio &uuml;ber eine voll ausgestattete K&uuml;che mit K&uuml;hlschrank, Herd und Sp&uuml;lmaschine sowie einen einladenden Bereich, der Raum f&uuml;r Austausch und gemeinsames Ankommen bietet.</p>
-                      </div>
-                    </div>
+                <!-- Panel 2: Ausstattung -->
+                <div class="carousel_slide_content" data-slide="1">
+                  <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
+                    <h2 class="u-text-style-h2">Ausstattung</h2>
+                  </div>
+                  <div class="u-text u-margin-top-3">
+                    <p>Matten, Gurte, Bl&ouml;cke, Decken und Bolster stehen dir vor Ort zur Verf&uuml;gung, sodass du dich ganz auf deine Praxis konzentrieren kannst.</p>
+                    <p>Zus&auml;tzlich verf&uuml;gt das Studio &uuml;ber eine voll ausgestattete K&uuml;che mit K&uuml;hlschrank, Herd und Sp&uuml;lmaschine sowie einen einladenden Bereich, der Raum f&uuml;r Austausch und gemeinsames Ankommen bietet.</p>
                   </div>
                 </div>
-                <!-- Slide 3: Umgebung -->
-                <div class="swiper-slide">
-                  <div class="carousel_slide_layout">
-                    <div class="carousel_slide_image">
-                      <img src="../assets/images/the-area.webp" alt="Umgebung" loading="lazy">
-                    </div>
-                    <div class="carousel_slide_content">
-                      <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
-                        <h2 class="u-text-style-h2">Umgebung</h2>
-                      </div>
-                      <div class="u-text u-margin-top-3">
-                        <p>Die Umgebung ist bekannt f&uuml;r die lebendige Energie, die kulturelle Vielfalt und die reiche Historie. Friedrichstadt ist ein Stadtteil, der Altes mit Neuem so wundervoll verbindet. Traditionelle Architektur gepaart mit modernem Komfort.</p>
-                        <p>Wenn du das Studio verl&auml;sst, befindest du dich mitten im Leben &ndash; Caf&eacute;s, Parks, kleine Gesch&auml;fte bilden die Nachbarschaft und lassen dich den einzigartigen Charme von D&uuml;sseldorf erleben. Jeder Besuch im Jivamukti Yoga Studio D&uuml;sseldorf bietet die perfekte Mischung zwischen Entspannung und Inspiration.</p>
-                      </div>
-                    </div>
+                <!-- Panel 3: Umgebung -->
+                <div class="carousel_slide_content" data-slide="2">
+                  <div data-wf--typography-heading--variant="h2" class="u-heading w-variant-efb733fe-da83-69a3-ea4a-b3f2f89d0389">
+                    <h2 class="u-text-style-h2">Umgebung</h2>
                   </div>
+                  <div class="u-text u-margin-top-3">
+                    <p>Die Umgebung ist bekannt f&uuml;r die lebendige Energie, die kulturelle Vielfalt und die reiche Historie. Friedrichstadt ist ein Stadtteil, der Altes mit Neuem so wundervoll verbindet. Traditionelle Architektur gepaart mit modernem Komfort.</p>
+                    <p>Wenn du das Studio verl&auml;sst, befindest du dich mitten im Leben &ndash; Caf&eacute;s, Parks, kleine Gesch&auml;fte bilden die Nachbarschaft und lassen dich den einzigartigen Charme von D&uuml;sseldorf erleben. Jeder Besuch im Jivamukti Yoga Studio D&uuml;sseldorf bietet die perfekte Mischung zwischen Entspannung und Inspiration.</p>
+                  </div>
+                </div>
                 </div>
               </div>
             </div>
