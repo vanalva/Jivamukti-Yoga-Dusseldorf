@@ -110,10 +110,10 @@
   --_theme---selection--text: var(--swatch--brand-500);
   --focus--offset-outer: .1875rem;
   --swatch--light-100: white;
-  --swatch--light-100-o20: color-mix(in srgb, var(--swatch--light-100) 20%, transparent);
+  --swatch--light-100-o20: color-mix(in srgb, var(--swatch--light-100) 20%, var(--swatch--dark-900));
   --swatch--light-200: #f9e4d9;
   --swatch--dark-800: #222222;
-  --swatch--dark-900-o20: color-mix(in srgb, var(--swatch--dark-900) 20%, transparent);
+  --swatch--dark-900-o20: color-mix(in srgb, var(--swatch--dark-900) 20%, var(--swatch--light-200));
   --swatch--brand-100: color-mix(in srgb, var(--swatch--brand-500), white 80%);
   --swatch--brand-200: color-mix(in srgb, var(--swatch--brand-500), white 60%);
   --swatch--brand-400: color-mix(in srgb, var(--swatch--brand-500), white 20%);
@@ -7208,6 +7208,37 @@ figure {
   --_theme---button-primary--border-hover: var(--swatch--light-100);
 }
 
+/* Method page: replace all remaining brand-500 (orange) with tertiary (teal) */
+.method-page {
+  scrollbar-color: var(--swatch--tertiary-500) transparent;
+}
+.method-page ::-webkit-scrollbar-thumb {
+  background: var(--swatch--tertiary-500);
+}
+.method-page ::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--swatch--tertiary-500) 80%, black);
+}
+
+/* Footer links: teal hover */
+.method-page .footer_nav_link:hover,
+.method-page .footer_social_link:hover,
+.method-page .footer_legal_link:hover,
+.method-page .footer_address_link:hover {
+  color: var(--swatch--tertiary-500);
+}
+
+/* Gutschein modal: teal border + close button */
+.method-page .gutschein_modal_wrap {
+  border-color: var(--swatch--tertiary-500);
+}
+.method-page .gutschein_modal_close {
+  border-color: var(--swatch--tertiary-500);
+  color: var(--swatch--tertiary-500);
+}
+.method-page .gutschein_modal_close:hover {
+  background: color-mix(in srgb, var(--swatch--tertiary-500) 10%, transparent);
+}
+
 /* ==========================================================================
    2. NAVIGATION CUSTOMIZATIONS
    Lumos nav_component handles structure, responsive, and mobile menu.
@@ -8097,6 +8128,16 @@ figure {
   opacity: 0.7;
 }
 
+.footer_address_link {
+  color: inherit;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.footer_address_link:hover {
+  color: var(--swatch--brand-500);
+}
+
 .footer_copyright_col {
   text-align: right;
 }
@@ -8134,8 +8175,11 @@ figure {
 /* Momence plugin color variables + full width */
 #momence-plugin-host-schedule {
   --momence-primary-color: var(--_theme---button-secondary--border) !important;
+  --momence-primary-500: var(--_theme---button-secondary--border) !important;
   --momence-secondary-color: var(--_theme---button-secondary--border) !important;
   --momence-tertiary-color: var(--_theme---button-secondary--border) !important;
+  --momence-background: var(--swatch--light-200) !important;
+  --momence-white: var(--swatch--light-100) !important;
   width: 100% !important;
   max-width: none !important;
 }
@@ -8379,6 +8423,19 @@ figure {
 /* Active tab underline */
 #momence-plugin-host-schedule .gZOyVg::after {
   background: var(--_theme---button-secondary--border) !important;
+}
+
+/* Catch any underlines / decorations Momence injects */
+#momence-plugin-host-schedule *::after,
+#momence-plugin-host-schedule *::before {
+  background-color: var(--_theme---button-secondary--border) !important;
+  border-color: var(--_theme---button-secondary--border) !important;
+}
+#momence-plugin-host-schedule a,
+#momence-plugin-host-schedule h2,
+#momence-plugin-host-schedule h3 {
+  text-decoration-color: var(--_theme---button-secondary--border) !important;
+  border-bottom-color: var(--_theme---button-secondary--border) !important;
 }
 
 /* Accordion component — styled to match htoggle container */
@@ -8868,47 +8925,185 @@ html:has(.nav_banner_wrap:not(.w-condition-invisible)):not(.hide-nav-banner) {
 .contact_modal_overlay {
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f9e4d9;
+  padding: var(--_spacing---space--4-24px);
+  pointer-events: none;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
-  overflow-y: auto;
-  padding: var(--spacing--spacing-8) var(--spacing--spacing-4);
+  transition: opacity 0.25s ease;
 }
 
 .contact_modal_overlay.is-open {
+  pointer-events: all;
   opacity: 1;
-  visibility: visible;
+}
+
+.contact_modal_backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(249, 228, 217, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .contact_modal_wrap {
   position: relative;
-  width: min(90vw, 36rem);
-  margin: auto;
+  z-index: 1;
+  width: 100%;
+  max-width: 36rem;
+  background: var(--_theme---background);
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  border-radius: var(--radius--main);
+  overflow-y: auto;
+  max-height: 90vh;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.15);
+  padding: var(--_spacing---space--6-40px);
+  transform: translateY(12px);
+  transition: transform 0.25s ease;
+}
+
+.contact_modal_overlay.is-open .contact_modal_wrap {
+  transform: translateY(0);
 }
 
 .contact_modal_close {
-  position: fixed;
-  top: var(--spacing--spacing-6);
-  right: var(--spacing--spacing-6);
-  background: none;
-  border: none;
+  position: absolute;
+  top: var(--_spacing---space--3-16px);
+  right: var(--_spacing---space--3-16px);
+  z-index: 10;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  background: transparent;
+  color: var(--swatch--brand-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  color: var(--color--text);
-  padding: 0.5rem;
-  line-height: 0;
-  z-index: 10000;
+  transition: background 0.2s;
 }
 
 .contact_modal_close svg {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.25rem;
+  height: 1rem;
 }
 
 .contact_modal_close:hover {
-  opacity: 0.7;
+  background: color-mix(in srgb, var(--swatch--brand-500) 10%, transparent);
 }
+
+/* ── Gutschein (Gift Card) Modal ── */
+
+.gutschein_modal_overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--_spacing---space--4-24px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.gutschein_modal_overlay.is-open {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.gutschein_modal_backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(249, 228, 217, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.gutschein_modal_wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 920px;
+  height: 22rem;
+  background: var(--_theme---background);
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  border-radius: var(--radius--main);
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.15);
+  transform: translateY(12px);
+  transition: transform 0.25s ease;
+}
+
+.gutschein_modal_overlay.is-open .gutschein_modal_wrap {
+  transform: translateY(0);
+}
+
+.gutschein_modal_iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  overflow: hidden;
+}
+
+.gutschein_modal_close {
+  position: absolute;
+  top: var(--_spacing---space--3-16px);
+  right: var(--_spacing---space--3-16px);
+  z-index: 10;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: var(--border-width--main) solid var(--swatch--brand-500);
+  background: transparent;
+  color: var(--swatch--brand-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.gutschein_modal_close:hover {
+  background: color-mix(in srgb, var(--swatch--brand-500) 10%, transparent);
+}
+
+.gutschein_modal_close svg {
+  width: 1.25rem;
+  height: 1rem;
+}
+
+/* ── Global Scrollbar ── */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--swatch--brand-500) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--swatch--brand-500);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--swatch--brand-500) 80%, black);
+}
+
+/* ── Lavender Theme Override ── */
+
+.is-theme-lavender {
+  --swatch--brand-500: #7880a9;
+}
+

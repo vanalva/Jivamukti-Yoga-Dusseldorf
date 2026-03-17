@@ -133,6 +133,47 @@
   }
 
   /* ========================================================================
+     5. GUTSCHEIN MODAL
+     ======================================================================== */
+
+  function initGutscheinModal() {
+    var modal = document.getElementById('gutscheinModal');
+    if (!modal) return;
+
+    var iframe = modal.querySelector('.gutschein_modal_iframe');
+    var closeBtn = modal.querySelector('[data-close-gutschein]');
+
+    function openModal(e) {
+      e.preventDefault();
+      if (iframe.src === 'about:blank') {
+        iframe.src = iframe.dataset.src;
+      }
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Bind all gutschein links (desktop + mobile nav)
+    document.querySelectorAll('a[href="#gutschein"]').forEach(function (link) {
+      link.addEventListener('click', openModal);
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    modal.querySelector('.gutschein_modal_backdrop').addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    });
+  }
+
+  /* ========================================================================
      INIT
      ======================================================================== */
 
@@ -141,6 +182,7 @@
     initFeatureCards();
     initHorizontalToggle();
     initContactForm();
+    initGutscheinModal();
   });
 
 })();
