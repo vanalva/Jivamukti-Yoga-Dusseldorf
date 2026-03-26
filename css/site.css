@@ -9052,6 +9052,35 @@ html:has(.nav_banner_wrap:not(.w-condition-invisible)):not(.hide-nav-banner) {
 /* ── Paragraph spacing for multi-paragraph .u-text blocks ── */
 .u-text > p + p { margin-top: var(--_spacing---space--2-12px); }
 
+/* ── CMS Collection: nth-child Styling ──
+   Varies theme and layout per item position in CMS lists.
+   Works with Webflow CMS collection lists (w-dyn-item). */
+
+/* Teacher Trainings — item 1: brand theme */
+[data-wf-collection="teacher-trainings"] .w-dyn-item:nth-child(1) .u-section {
+  background-color: var(--swatch--brand-500);
+  color: var(--swatch--brand-text);
+  --_theme---background: var(--swatch--brand-500);
+  --_theme---text: var(--swatch--brand-text);
+  --_theme---heading-accent: color-mix(in srgb, var(--swatch--brand-text), white 20%);
+  --_theme---border: color-mix(in srgb, var(--swatch--brand-text), transparent 80%);
+  --_theme---button-primary--background: var(--swatch--brand-text);
+  --_theme---button-primary--text: var(--swatch--brand-500);
+  --_theme---button-secondary--background: transparent;
+  --_theme---button-secondary--text: var(--swatch--brand-text);
+  --_theme---button-secondary--border: var(--swatch--brand-text);
+}
+
+/* Teacher Trainings — even items: reversed layout */
+[data-wf-collection="teacher-trainings"] .w-dyn-item:nth-child(even) .u-layout {
+  flex-direction: row-reverse;
+}
+
+/* Workshops — even items: reversed column order (image right) */
+[data-wf-collection="workshops"] .w-dyn-item:nth-child(even) .u-layout {
+  flex-direction: row-reverse;
+}
+
 /* ── Contact Modal ── */
 
 .contact_modal_overlay {
