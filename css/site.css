@@ -9071,9 +9071,12 @@ html:has(.nav_banner_wrap:not(.w-condition-invisible)):not(.hide-nav-banner) {
   --_theme---button-secondary--border: var(--swatch--brand-text);
 }
 
-/* Teacher Trainings — even items: reversed layout */
-[data-wf-collection="teacher-trainings"] .w-dyn-item:nth-child(even) .u-layout {
-  flex-direction: row-reverse;
+/* Teacher Trainings — even items: reversed layout (grid needs order swap) */
+[data-wf-collection="teacher-trainings"] .w-dyn-item:nth-child(even) .u-layout-column-1 {
+  order: 2;
+}
+[data-wf-collection="teacher-trainings"] .w-dyn-item:nth-child(even) .u-layout-column-2 {
+  order: 1;
 }
 
 /* Teacher Trainings — item 3: dark theme (mirrors u-theme-dark) */
