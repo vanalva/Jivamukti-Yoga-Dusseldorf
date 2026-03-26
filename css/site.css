@@ -9076,6 +9076,21 @@ html:has(.nav_banner_wrap:not(.w-condition-invisible)):not(.hide-nav-banner) {
   flex-direction: row-reverse;
 }
 
+/* Teacher Trainings — item 3: dark theme */
+[data-wf-collection="teacher-trainings"] .w-dyn-item:nth-child(3) .u-section {
+  background-color: var(--swatch--dark-800);
+  color: var(--swatch--dark-text);
+  --_theme---background: var(--swatch--dark-800);
+  --_theme---text: var(--swatch--dark-text);
+  --_theme---heading-accent: color-mix(in srgb, var(--swatch--dark-text), white 20%);
+  --_theme---border: color-mix(in srgb, var(--swatch--dark-text), transparent 80%);
+  --_theme---button-primary--background: var(--swatch--dark-text);
+  --_theme---button-primary--text: var(--swatch--dark-800);
+  --_theme---button-secondary--background: transparent;
+  --_theme---button-secondary--text: var(--swatch--dark-text);
+  --_theme---button-secondary--border: var(--swatch--dark-text);
+}
+
 /* Workshops — even items: reversed column order (image right) */
 [data-wf-collection="workshops"] .w-dyn-item:nth-child(even) .u-layout {
   flex-direction: row-reverse;
