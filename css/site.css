@@ -8127,6 +8127,7 @@ body.method-page {
   }
 
   .htoggle_content.is-active {
+    flex: 0 0 auto;
     border-left-width: 0;
     margin-left: 0;
     border-top: var(--border-width--main) solid currentColor;
