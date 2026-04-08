@@ -7561,8 +7561,7 @@ body.method-page {
    and responsive stacking. Only min-height override needed for hero presence. */
 
 .page_hero {
-  max-height: 100vh;
-  overflow: hidden;
+  min-height: min(100vh, 600px);
 }
 
 .page_hero .u-layout-column-2 {
