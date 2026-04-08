@@ -421,100 +421,24 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="u-container">
           <div class="news_grid w-dyn-list" data-wf-collection="news">
             <div role="list" class="w-dyn-items">
-
-              <!-- Post 1 -->
               <div role="listitem" class="w-dyn-item">
-                <button class="news_card" aria-label="Post öffnen: Workshop Recap: Yoga & Sound Healing mit Glikeria">
-                  <img class="news_card_image" src="../assets/images/studio/studio-detail-1.jpg" alt="Workshop Recap: Yoga &amp; Sound Healing mit Glikeria" loading="lazy">
+                <button class="news_card" aria-label="Post öffnen" data-wf-bind="title">
+                  <img class="news_card_image" src="../assets/images/placeholder.jpg" data-wf-bind="featured-image" alt="" data-wf-bind-alt="image-alt" loading="lazy">
                   <div class="news_card_overlay">
-                    <p class="news_card_caption_preview">Workshop Recap: Yoga &amp; Sound Healing mit Glikeria</p>
-                    <span class="news_card_date">20. Februar 2025</span>
+                    <p class="news_card_caption_preview" data-wf-bind="title">Post Title</p>
+                    <span class="news_card_date" data-wf-bind="post-date">1. Januar 2025</span>
                   </div>
                   <div class="news_card_multi_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="14" height="14" rx="2"/><rect x="3" y="6" width="14" height="14" rx="2" fill="rgba(255,255,255,0.3)"/></svg></div>
                 </button>
+                <!-- Hidden gallery images from CMS MultiImage field -->
+                <div class="news_gallery" style="display:none" data-wf-bind="gallery">
+                  <img class="news_gallery_image" src="../assets/images/placeholder.jpg" alt="">
+                </div>
+                <!-- Hidden description for modal -->
+                <div class="news_description" style="display:none" data-wf-bind="description">
+                  <p>Post description from CMS.</p>
+                </div>
               </div>
-
-              <!-- Post 2 -->
-              <div role="listitem" class="w-dyn-item">
-                <button class="news_card" aria-label="Post öffnen: Neue Lehrerin im Team: Herzlich willkommen, Martyna!">
-                  <img class="news_card_image" src="../assets/images/martyna-workshop.jpg" alt="Neue Lehrerin im Team: Herzlich willkommen, Martyna!" loading="lazy">
-                  <div class="news_card_overlay">
-                    <p class="news_card_caption_preview">Neue Lehrerin im Team: Herzlich willkommen, Martyna!</p>
-                    <span class="news_card_date">13. Februar 2025</span>
-                  </div>
-                </button>
-              </div>
-
-              <!-- Post 3 -->
-              <div role="listitem" class="w-dyn-item">
-                <button class="news_card" aria-label="Post öffnen: Community Event: Vollmond-Yoga">
-                  <img class="news_card_image" src="../assets/images/home-community.jpg" alt="Community Event: Vollmond-Yoga" loading="lazy">
-                  <div class="news_card_overlay">
-                    <p class="news_card_caption_preview">Community Event: Vollmond-Yoga</p>
-                    <span class="news_card_date">5. Februar 2025</span>
-                  </div>
-                  <div class="news_card_multi_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="14" height="14" rx="2"/><rect x="3" y="6" width="14" height="14" rx="2" fill="rgba(255,255,255,0.3)"/></svg></div>
-                </button>
-              </div>
-
-              <!-- Post 4 -->
-              <div role="listitem" class="w-dyn-item">
-                <button class="news_card" aria-label="Post öffnen: 75HR Teacher Training – Nächste Runde startet im April!">
-                  <img class="news_card_image" src="../assets/images/75h-event-hero.png" alt="75HR Teacher Training – Nächste Runde startet im April!" loading="lazy">
-                  <div class="news_card_overlay">
-                    <p class="news_card_caption_preview">75HR Teacher Training – Nächste Runde startet im April!</p>
-                    <span class="news_card_date">28. Januar 2025</span>
-                  </div>
-                  <div class="news_card_multi_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="14" height="14" rx="2"/><rect x="3" y="6" width="14" height="14" rx="2" fill="rgba(255,255,255,0.3)"/></svg></div>
-                </button>
-              </div>
-
-              <!-- Post 5 -->
-              <div role="listitem" class="w-dyn-item">
-                <button class="news_card" aria-label="Post öffnen: Workshop mit Dana: Yin Yoga &amp; Restorative Practice">
-                  <img class="news_card_image" src="../assets/images/dana-workshop.png" alt="Workshop mit Dana: Yin Yoga &amp; Restorative Practice" loading="lazy">
-                  <div class="news_card_overlay">
-                    <p class="news_card_caption_preview">Workshop mit Dana: Yin Yoga &amp; Restorative Practice</p>
-                    <span class="news_card_date">17. Januar 2025</span>
-                  </div>
-                  <div class="news_card_multi_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="14" height="14" rx="2"/><rect x="3" y="6" width="14" height="14" rx="2" fill="rgba(255,255,255,0.3)"/></svg></div>
-                </button>
-              </div>
-
-              <!-- Post 6 -->
-              <div role="listitem" class="w-dyn-item">
-                <button class="news_card" aria-label="Post öffnen: Neues Jahr, neue Energie">
-                  <img class="news_card_image" src="../assets/images/home-classes.jpg" alt="Neues Jahr, neue Energie" loading="lazy">
-                  <div class="news_card_overlay">
-                    <p class="news_card_caption_preview">Neues Jahr, neue Energie</p>
-                    <span class="news_card_date">8. Januar 2025</span>
-                  </div>
-                </button>
-              </div>
-
-              <!-- Post 7 -->
-              <div role="listitem" class="w-dyn-item">
-                <button class="news_card" aria-label="Post öffnen: Winter Special: Yoga am Heiligabend">
-                  <img class="news_card_image" src="../assets/images/studio/studio-detail-4.jpg" alt="Winter Special: Yoga am Heiligabend" loading="lazy">
-                  <div class="news_card_overlay">
-                    <p class="news_card_caption_preview">Winter Special: Yoga am Heiligabend</p>
-                    <span class="news_card_date">19. Dezember 2024</span>
-                  </div>
-                  <div class="news_card_multi_icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="7" y="2" width="14" height="14" rx="2"/><rect x="3" y="6" width="14" height="14" rx="2" fill="rgba(255,255,255,0.3)"/></svg></div>
-                </button>
-              </div>
-
-              <!-- Post 8 -->
-              <div role="listitem" class="w-dyn-item">
-                <button class="news_card" aria-label="Post öffnen: Jivamukti Focus of the Month: Dezember">
-                  <img class="news_card_image" src="../assets/images/jtap-books.jpg" alt="Jivamukti Focus of the Month: Dezember" loading="lazy">
-                  <div class="news_card_overlay">
-                    <p class="news_card_caption_preview">Jivamukti Focus of the Month: Dezember</p>
-                    <span class="news_card_date">5. Dezember 2024</span>
-                  </div>
-                </button>
-              </div>
-
             </div>
           </div>
         </div>
@@ -687,6 +611,108 @@ document.addEventListener("DOMContentLoaded", function () {
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="../js/webflow.js"></script>
   <script src="../js/main.js"></script>
-  <script src="../js/news.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    var currentPostIndex = 0, currentImageIndex = 0;
+    var modal, modalBackdrop, modalImage, modalDate, modalCaption;
+    var modalPrev, modalNext, modalDots, modalClose;
+    var posts = [];
+
+    function buildPostsFromDOM() {
+      document.querySelectorAll('.w-dyn-item').forEach(function (item) {
+        var card = item.querySelector('.news_card');
+        if (!card) return;
+        var caption = card.querySelector('.news_card_caption_preview');
+        var date = card.querySelector('.news_card_date');
+        var descEl = item.querySelector('.news_description');
+        var galleryImgs = item.querySelectorAll('.news_gallery_image');
+        var images = [];
+        galleryImgs.forEach(function (img) { if (img.src) images.push(img.src); });
+        if (images.length === 0) {
+          var featured = card.querySelector('.news_card_image');
+          if (featured) images.push(featured.src);
+        }
+        var multiIcon = card.querySelector('.news_card_multi_icon');
+        if (multiIcon) multiIcon.style.display = images.length > 1 ? '' : 'none';
+        posts.push({
+          images: images,
+          caption: descEl ? descEl.textContent.trim() : (caption ? caption.textContent : ''),
+          title: caption ? caption.textContent : '',
+          date: date ? date.textContent : ''
+        });
+      });
+    }
+
+    function openModal(i) {
+      currentPostIndex = i; currentImageIndex = 0;
+      updateModal();
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      modalClose.focus();
+    }
+    function closeModal() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    function updateModal() {
+      var post = posts[currentPostIndex];
+      var images = post.images, total = images.length;
+      modalImage.src = images[currentImageIndex];
+      modalDate.textContent = post.date;
+      modalCaption.textContent = post.caption;
+      modalPrev.classList.toggle('is-hidden', total <= 1 || currentImageIndex === 0);
+      modalNext.classList.toggle('is-hidden', total <= 1 || currentImageIndex === total - 1);
+      modalDots.innerHTML = '';
+      if (total > 1) {
+        images.forEach(function (_, i) {
+          var dot = document.createElement('span');
+          dot.className = 'news_modal_dot' + (i === currentImageIndex ? ' is-active' : '');
+          modalDots.appendChild(dot);
+        });
+      }
+    }
+    function prevImage() { if (currentImageIndex > 0) { currentImageIndex--; updateModal(); } }
+    function nextImage() { var t = posts[currentPostIndex].images.length; if (currentImageIndex < t - 1) { currentImageIndex++; updateModal(); } }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      modal = document.getElementById('newsModal');
+      modalBackdrop = document.getElementById('newsModalBackdrop');
+      modalImage = document.getElementById('newsModalImage');
+      modalDate = document.getElementById('newsModalDate');
+      modalCaption = document.getElementById('newsModalCaption');
+      modalPrev = document.getElementById('newsModalPrev');
+      modalNext = document.getElementById('newsModalNext');
+      modalDots = document.getElementById('newsModalDots');
+      modalClose = document.getElementById('newsModalClose');
+      if (!modal) return;
+
+      buildPostsFromDOM();
+
+      document.querySelectorAll('.news_card').forEach(function (card, index) {
+        card.addEventListener('click', function () { openModal(index); });
+      });
+
+      modalClose.addEventListener('click', closeModal);
+      modalBackdrop.addEventListener('click', closeModal);
+      modalPrev.addEventListener('click', prevImage);
+      modalNext.addEventListener('click', nextImage);
+
+      document.addEventListener('keydown', function (e) {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'ArrowRight') nextImage();
+      });
+
+      var touchStartX = 0;
+      modalImage.addEventListener('touchstart', function (e) { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+      modalImage.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) { if (dx < 0) nextImage(); else prevImage(); }
+      }, { passive: true });
+    });
+  })();
+  </script>
 </body>
 </html>
