@@ -459,17 +459,19 @@ document.addEventListener("DOMContentLoaded", function () {
           <div data-wf--typography-heading--variant="display" class="u-heading w-variant-eee56f15-d7ce-d101-2f8c-83b3bbd55d4a u-heading-accent u-alignment-center" style="margin-bottom: var(--_spacing---space--5-32px);">
             <h2 class="u-text-style-display">Finde deine nächste Klasse</h2>
           </div>
-          <div id="ribbon-schedule" class="schedule_embed_wrap"></div>
-          <script
-            async
-            type="module"
-            host_id="36797"
-            teacher_ids="[]"
-            location_ids="[]"
-            tag_ids="[]"
-            default_filter="show-all"
-            src="https://momence.com/plugin/host-schedule/host-schedule.js"
-          ></script>
+          <div class="schedule_embed_wrap w-embed w-script">
+            <div id="ribbon-schedule"></div>
+            <script
+              async
+              type="module"
+              host_id="36797"
+              teacher_ids="[]"
+              location_ids="[]"
+              tag_ids="[]"
+              default_filter="show-all"
+              src="https://momence.com/plugin/host-schedule/host-schedule.js"
+            ></script>
+          </div>
         </div>
         <div data-wf--spacer--variant="main" class="u-section-spacer w-variant-60a7ad7d-02b0-6682-95a5-2218e6fd1490 u-ignore-trim"></div>
       </section>
